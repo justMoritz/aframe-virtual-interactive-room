@@ -1,0 +1,61 @@
+.dialogue{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0; top: 0;
+  // display: none;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+
+
+  &.this--visible{
+    display: block;
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  &__closer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+
+  &__text{
+    background: pink;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    max-width: 64vw;
+    max-height: 48vw;
+    box-shadow: 10px 10px 35px rgba(0,0,0,0.25);
+    animation: float 6s ease-in-out infinite;
+  }
+
+
+
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+    transform: translate(-50%, calc(-50% - 20px) );
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translate(-50%, -50%);
+  }
+}
