@@ -28,7 +28,37 @@ var allCustomAnimationsHelper = {
       for(var i=0; i<internal.length; i++ )
         internal[i].classList.remove('clickable');
     }
-  }
+  },
+
+  cooler_drawer: function(){
+
+    var drawer   = document.getElementById("cooler-drawer");
+    var dialogue = document.getElementById("cooler-drawer-dialog");
+    var poi      = document.getElementById("cooler-drawer-poi");
+    var internal = document.querySelectorAll(".cooler-drawer-dialog-internal");
+
+    if( !drawer.classList.contains('this--open') ){
+      // console.log('not open')
+      drawer.setAttribute("animation", "property: position; to: 7 -5.363 8.117; dur: 500; easing: easeOutQuad; loop: false");
+      drawer.classList.add('this--open');
+      dialogue.setAttribute("visible", "true");
+      poi.setAttribute("visible", "false");
+
+      for(var i=0; i<internal.length; i++ )
+        internal[i].classList.add('clickable')
+
+
+    }else{
+      // console.log('is open')
+      drawer.setAttribute("animation", "property: position; to: 8.727 -5.363 8.117; dur: 500; easing: easeOutQuad; loop: false");
+      drawer.classList.remove('this--open');
+      dialogue.setAttribute("visible", "false");
+      poi.setAttribute("visible", "true");
+
+      for(var i=0; i<internal.length; i++ )
+        internal[i].classList.remove('clickable');
+    }
+  },
 
 };
 
