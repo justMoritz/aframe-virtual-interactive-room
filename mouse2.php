@@ -34,12 +34,13 @@
 
     <a-scene shadow="type: pcfsoft">
       <a-assets>
-        <img id="sky" src="src/Villas-on-Rio_B6_360_1.png">
+        <img id="img_sky" src="src/Villas-on-Rio_B6_360_1.png">
+        <img id="img_poi" src="src/poi.png">
         <img id="transparent" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=">
         <img id="transpImage" crossorigin="anonymous" src="http://ekladata.com/hXTGfWnZm170W274zDRObDlqOlc.png">
       </a-assets>
 
-<a-entity id="camera" camera="far: 5000" look-controls="" cursor="rayOrigin: mouse" position="-0.12365 1.34538 0.72366" rotation="" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true" data-aframe-inspector-original-camera=""></a-entity>
+<a-entity id="camera" camera="far: 5000" look-controls="" cursor="rayOrigin: mouse" position="-0.12365 1.34538 0.72366" rotation="" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
 
       <!-- <a-entity id="camera" camera="" look-controls="" cursor="rayOrigin: mouse" position="-0.12365 1.34538 0.72366" rotation="3.4377467707849454 -3.208563652732527 0" raycaster="direction: -0.6481069671855063 -0.6221383356118224 -0.43920524865688537; origin: 2.8888617887268344 11.049112962311197 8.089424428829291; useWorldCoordinates: true" data-aframe-inspector-original-camera=""></a-entity> -->
 
@@ -89,6 +90,7 @@
 <a-box
   animation-click-handler="desk_drawer"
   id="desk-drawer"
+  class="clickable"
   shadow="cast: false"
   sshadow-material=""
   position="8.77143 -4.99191 0.125"
@@ -97,17 +99,24 @@
   material="opacity: 0.25"
   animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
   animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
-></a-box>
+>
+  <a-image id="desk-drawer-poi" look-at="#camera" src="#img_poi"  animation-click-handler="desk_drawer" alpha-test position="-2.55 -0.40 0" class="not-clickable"></a-image>
+</a-box>
 
 <!-- This is the info dialog for the desk drawer, with close and show more buttons -->
 <a-entity id="desk-drawer-dialog" look-at="#camera" shadow="cast: true" geometry="primitive: plane; height: 5; width: 3" position="8.72461 -0.75065 -0.30113" visible="false">
-  <a-entity id="desk-drawer-dialog-close" animation-click-handler="desk_drawer" geometry="" position="1.25 2.25 0" class="clickable"></a-entity>
-  <a-entity id="desk-drawer-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" dialog-more-button="desk-drawer" class="clickable"></a-entity>
+  <a-entity id="desk-drawer-dialog-close" animation-click-handler="desk_drawer" geometry="" position="1.25 2.25 0" class="desk-drawer-dialog-internal"></a-entity>
+  <a-entity id="desk-drawer-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" dialog-more-button="desk-drawer" class="desk-drawer-dialog-internal"></a-entity>
 </a-entity>
 
 
 
 
+<!--
+  /**
+   * Storage Cooler Animation and Related
+   */
+-->
 
 
 
@@ -132,7 +141,7 @@
 
 
 
-      <a-sky src="#sky"></a-sky>
+      <a-sky src="#img_sky"></a-sky>
 
 
 

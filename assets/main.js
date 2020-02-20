@@ -4,18 +4,29 @@ var allCustomAnimationsHelper = {
 
     var drawer   = document.getElementById("desk-drawer");
     var dialogue = document.getElementById("desk-drawer-dialog");
+    var poi      = document.getElementById("desk-drawer-poi");
+    var internal = document.querySelectorAll(".desk-drawer-dialog-internal");
 
     if( !drawer.classList.contains('this--open') ){
       // console.log('not open')
       drawer.setAttribute("animation", "property: position; to: 6 -4.99191 0.125; dur: 500; easing: easeOutQuad; loop: false");
       drawer.classList.add('this--open');
       dialogue.setAttribute("visible", "true");
+      poi.setAttribute("visible", "false");
+
+      for(var i=0; i<internal.length; i++ )
+        internal[i].classList.add('clickable')
+
 
     }else{
       // console.log('is open')
       drawer.setAttribute("animation", "property: position; to: 8.77143 -4.99191 0.125; dur: 500; easing: easeOutQuad; loop: false");
       drawer.classList.remove('this--open');
       dialogue.setAttribute("visible", "false");
+      poi.setAttribute("visible", "true");
+
+      for(var i=0; i<internal.length; i++ )
+        internal[i].classList.remove('clickable');
     }
   }
 
