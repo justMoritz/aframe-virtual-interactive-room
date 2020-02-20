@@ -17,31 +17,64 @@
     height: 100%;
     left: 0;
     top: 0; }
+  .dialogue__closerX {
+    pointer-events: none;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url("/src/close.png");
+    right: 0;
+    top: 0;
+    z-index: 99999999;
+    background-size: contain;
+    background-repeat: no-repeat; }
   .dialogue__text {
-    background: pink;
-    display: flex;
+    background: #fff;
+    display: block;
     position: absolute;
     align-items: center;
     justify-content: center;
     left: 50%;
     top: 50%;
+    overflow: scroll;
     transform: translate(-50%, -50%);
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
-    max-width: 64vw;
-    max-height: 48vw;
-    box-shadow: 10px 10px 35px rgba(0, 0, 0, 0.25);
+    width: calc(100% - 70px);
+    height: calc(100% - 70px);
+    max-width: 1000px;
+    max-height: 1000px;
+    box-shadow: 10px 10px 55px rgba(0, 0, 0, 0.15);
     animation: float 6s ease-in-out infinite; }
+  .dialogue__inner {
+    padding: 8%;
+    font-size: 22px;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.45em;
+    color: #263d4a; }
+  .dialogue__headline {
+    font-family: questa-grande, serif;
+    font-size: 52px;
+    margin: 0 0 0.2em;
+    line-height: 0.8em;
+    letter-spacing: -0.06em;
+    line-height: .75em;
+    letter-spacing: -.07em;
+    font-weight: 400;
+    line-height: 0.8em;
+    letter-spacing: -0.02em; }
+    @media (min-width: 1024px) {
+      .dialogue__headline {
+        font-size: 152px; } }
 
 @keyframes float {
   0% {
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 5px 25px 0px rgba(0, 0, 0, 0.6);
     transform: translate(-50%, -50%); }
   50% {
-    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 25px 25px 0px rgba(0, 0, 0, 0.2);
     transform: translate(-50%, calc(-50% - 20px)); }
   100% {
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 5px 25px 0px rgba(0, 0, 0, 0.6);
     transform: translate(-50%, -50%); } }
 
 /*# sourceMappingURL=styles.css.map */
