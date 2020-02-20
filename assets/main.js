@@ -219,7 +219,7 @@ AFRAME.registerComponent('shadow-material', {
     console.log(mesh);
     if (!mesh){return;}
     mesh.material = new THREE.ShadowMaterial();
-    mesh.material.opacity = 0.5;
+    mesh.material.opacity = 0.25;
   }
 });
 
