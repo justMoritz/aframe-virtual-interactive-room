@@ -91,13 +91,13 @@
 -->
 
 <!-- This box hides both the overflow of the drawer underneath as well as provide a surface for shadows -->
-<a-box id="desk-top" shadow="cast: false" shadow-material="" position="8.77143 -4.62456 0.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 9.37" material="opacity: 0.0000"></a-box>
+<a-box id="desk-top" class="clickable" shadow="cast: false" shadow-material="" position="8.77143 -4.62456 0.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 9.37" material="opacity: 0.0000"></a-box>
 
 <!-- Desk Drawer functinoality set in main.js through the animation-click-handler attirbute -->
 <a-box
   animation-click-handler="desk_drawer"
   id="desk-drawer"
-  class="clickable"
+  class="clickable custom-animation-object"
   shadow="cast: false"
   sshadow-material=""
   position="8.77143 -4.99191 0.125"
@@ -117,8 +117,6 @@
 </a-entity>
 
 
-
-
 <!--
   /**
    * Storage Cooler Animation and Related
@@ -133,7 +131,7 @@
 <a-box
   animation-click-handler="cooler_drawer"
   id="cooler-drawer"
-  class="clickable"
+  class="clickable custom-animation-object"
   position="8.727 -5.363 8.117"
   width="4"
   height="4"
@@ -151,6 +149,38 @@
   <a-entity id="cooler-drawer-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" dialog-more-button="cooler-drawer" class="cooler-drawer-dialog-internal"></a-entity>
 </a-entity>
 
+
+
+
+
+<!--
+  /**
+   * Curtain Animation and related
+   */
+-->
+
+<!-- Curtain functinoality set in main.js through the animation-click-handler attirbute -->
+<a-box
+  animation-click-handler="curtain"
+  id="curtain"
+  class="clickable custom-animation-object"
+  shadow="cast: false"
+  sshadow-material=""
+  position="3.646 0.463 11.643"
+  width="4" height="4"
+  geometry="width: 5.470; height: 25.0; depth: 0.2"
+  material="opacity: 0.55"
+  animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
+  animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
+>
+  <a-image id="curtain-poi" look-at="#camera" src="#img_poi"  animation-click-handler="curtain" alpha-test position="-2.55 -0.40 0" class="not-clickable"></a-image>
+</a-box>
+
+<!-- This is the info dialog for the curtain, with close and show more buttons -->
+<a-entity id="curtain-dialog" look-at="#camera" shadow="cast: true" geometry="primitive: plane; height: 5; width: 3" position="-3.366 1.400 6.560" visible="false">
+  <a-entity id="curtain-dialog-close" animation-click-handler="curtain" geometry="" position="1.25 2.25 0" class="curtain-dialog-internal"></a-entity>
+  <a-entity id="curtain-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" dialog-more-button="curtain" class="curtain-dialog-internal"></a-entity>
+</a-entity>
 
 
 
