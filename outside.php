@@ -33,17 +33,17 @@
 
       <!-- All Images -->
       <a-assets>
-        <img id="img_sky" src="src/Villas-on-Rio_B6_360_2.png">
-        <img id="img_poi" src="src/poi.png">
-        <img id="img_headphones" src="src/headphones.png">
-        <img id="img_direction-in" src="src/direction-in.png">
-        <img id="img_poi" src="src/poi.png">
-        <img id="img_button" src="src/button.png">
-        <img id="img_close" src="src/close.png">
-        <img id="img_clothes-drawer" src="src/clothes-drawer.png">
-        <img id="img_headphones-d" src="src/headphones-d.png">
-        <img id="img_curtain" src="src/curtain.png">
-        <img id="img_headboard" src="src/headboard.png">
+        <img id="img_sky" src="src/Villas-on-Rio_B6_360_2.jpg">
+        <img id="img_poi" src="src/poi-min.png">
+        <img id="img_headphones" src="src/headphones-min.png">
+        <img id="img_direction-in" src="src/direction-in-min.png">
+        <img id="img_poi" src="src/poi-min.png">
+        <img id="img_button" src="src/button-min.png">
+        <img id="img_close" src="src/close-min.png">
+        <img id="img_clothes-drawer" src="src/clothes-drawer-min.png">
+        <img id="img_headphones-d" src="src/headphones-d-min.png">
+        <img id="img_curtain" src="src/curtain-min.png">
+        <img id="img_headboard" src="src/headboard-min.png">
         <img id="transparent" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=">
         <img id="transpImage" crossorigin="anonymous" src="http://ekladata.com/hXTGfWnZm170W274zDRObDlqOlc.png">
       </a-assets>
@@ -229,6 +229,9 @@
 
 
     </a-scene>
+
+
+    <span class="patent-pending">Patent Pending</span>
 
     <!-- External HTML overlay, hidden by default, will show over the Aframe canvas -->
     <div class="dialogue">

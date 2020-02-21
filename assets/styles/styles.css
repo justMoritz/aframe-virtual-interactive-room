@@ -79,6 +79,17 @@
   100% {
     box-shadow: 0 5px 25px 0px rgba(0, 0, 0, 0.6);
     transform: translate(-50%, -50%); } }
+.patent-pending {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  padding: 5px;
+  font-size: 10px;
+  font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.45em;
+  color: #263d4a; }
+
 .frame-blend-overlay {
   position: fixed;
   width: 100%;

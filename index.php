@@ -33,24 +33,24 @@
 
       <!-- All Images -->
       <a-assets>
-        <img id="img_sky" src="src/Villas-on-Rio_B6_360_1.png">
-        <img id="img_poi" src="src/poi.png">
-        <img id="img_iphone" src="src/iphone.png">
-        <img id="img_ipad" src="src/ipad.png">
-        <img id="img_headphones" src="src/headphones.png">
-        <img id="img_direction-in" src="src/direction-in.png">
-        <img id="img_appletv" src="src/appletv.png">
-        <img id="img_poi" src="src/poi.png">
-        <img id="img_button" src="src/button.png">
-        <img id="img_close" src="src/close.png">
-        <img id="img_desk-drawer" src="src/desk-drawer.png">
-        <img id="img_cooler-drawer" src="src/cooler-drawer.png">
-        <img id="img_iphone-d" src="src/iphone-d.png">
-        <img id="img_ipad-d" src="src/ipad-d.png">
-        <img id="img_headphones-d" src="src/headphones-d.png">
-        <img id="img_curtain" src="src/curtain.png">
-        <img id="img_television" src="src/television.png">
-        <img id="img_headboard" src="src/headboard.png">
+        <img id="img_sky" src="src/Villas-on-Rio_B6_360_1.jpg">
+        <img id="img_poi" src="src/poi-min.png">
+        <img id="img_iphone" src="src/iphone-min.png">
+        <img id="img_ipad" src="src/ipad-min.png">
+        <img id="img_headphones" src="src/headphones-min.png">
+        <img id="img_direction-in" src="src/direction-in-min.png">
+        <img id="img_appletv" src="src/appletv-min.png">
+        <img id="img_poi" src="src/poi-min.png">
+        <img id="img_button" src="src/button-min.png">
+        <img id="img_close" src="src/close-min.png">
+        <img id="img_desk-drawer" src="src/desk-drawer-min.png">
+        <img id="img_cooler-drawer" src="src/cooler-drawer-min.png">
+        <img id="img_iphone-d" src="src/iphone-d-min.png">
+        <img id="img_ipad-d" src="src/ipad-d-min.png">
+        <img id="img_headphones-d" src="src/headphones-d-min.png">
+        <img id="img_curtain" src="src/curtain-min.png">
+        <img id="img_television" src="src/television-min.png">
+        <img id="img_headboard" src="src/headboard-min.png">
         <img id="transparent" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=">
         <img id="transpImage" crossorigin="anonymous" src="http://ekladata.com/hXTGfWnZm170W274zDRObDlqOlc.png">
       </a-assets>
@@ -336,6 +336,8 @@
         </div>
       </div>
     </div>
+
+    <span class="patent-pending">Patent Pending</span>
 
     <!-- Right now spaces live in different files, this element is used to hide the transition -->
     <div class="frame-blend-overlay">
