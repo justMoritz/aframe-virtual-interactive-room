@@ -38,6 +38,7 @@
         <img id="img_iphone" src="src/iphone.png">
         <img id="img_ipad" src="src/ipad.png">
         <img id="img_headphones" src="src/headphones.png">
+        <img id="img_direction-in" src="src/direction-in.png">
         <img id="img_appletv" src="src/appletv.png">
         <img id="img_poi" src="src/poi.png">
         <img id="img_button" src="src/button.png">
@@ -295,6 +296,27 @@
       </a-image>
 
 
+      <!-- Link to Exterior -->
+      <a-image
+        framechange-click-handler="outside.php"
+        id="arrow"
+        class="clickable"
+        look-at="#camera"
+        src="#img_direction-in"
+        alpha-test=""
+        material="opacity: 0.75"
+        geometry="primitive: circle; radius: 0.9"
+        shadow="receive: false"
+        position="-5.2 -10 17.7"
+        animation="property: position; to: -5.2 -9 17.7; dur: 3000; easing: easeOutQuad; dir: alternate; loop: true"
+        scale="1 1 1"
+        animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
+        animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
+        animation__mousedown_scale="property: scale; to: 1.1 1.1 1.1; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
+        animation__mouseleave_scale="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
+      >
+      </a-image>
+
       <!-- Background Image -->
       <a-sky src="#img_sky"></a-sky>
 
@@ -313,6 +335,10 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Right now spaces live in different files, this element is used to hide the transition -->
+    <div class="frame-blend-overlay">
     </div>
 
     <!-- Loads custom scripts for events and animations -->

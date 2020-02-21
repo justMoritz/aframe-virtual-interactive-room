@@ -36,6 +36,7 @@
         <img id="img_sky" src="src/Villas-on-Rio_B6_360_2.png">
         <img id="img_poi" src="src/poi.png">
         <img id="img_headphones" src="src/headphones.png">
+        <img id="img_direction-in" src="src/direction-in.png">
         <img id="img_poi" src="src/poi.png">
         <img id="img_button" src="src/button.png">
         <img id="img_close" src="src/close.png">
@@ -61,7 +62,7 @@
 
 
       <!-- Goodbye, Friend :'(' -->
-      <a-sphere position="6.96188 -0.37915 -9.11629" id="pizzaSphere" radius="1.25" color="#EF2D5E" shadow="" event-set__enter="[object Object]" event-set__leave="[object Object]" material="" geometry="radius: 0.5" animation="property: position; to: 5 -4.6 2; dur: 5500; dir: alternate; easing: linear; loop: true"></a-sphere>
+      <!-- <a-sphere position="6.96188 -0.37915 -9.11629" id="pizzaSphere" radius="1.25" color="#EF2D5E" shadow="" event-set__enter="[object Object]" event-set__leave="[object Object]" material="" geometry="radius: 0.5" animation="property: position; to: 5 -4.6 2; dur: 5500; dir: alternate; easing: linear; loop: true"></a-sphere> -->
 
 
       <!-- Far-side Counter Top Matte -->
@@ -167,7 +168,6 @@
       </a-image>
 
 
-
       <!-- Headphones -->
       <a-image
         animation-click-handler="headphones"
@@ -197,6 +197,33 @@
       </a-image>
 
 
+
+
+
+
+      <!-- Link to Interior -->
+      <a-image
+        framechange-click-handler="index.php"
+        id="arrow"
+        class="clickable"
+        look-at="#camera"
+        src="#img_direction-in"
+        alpha-test=""
+        material="opacity: 0.75"
+        geometry="primitive: circle; radius: 0.9"
+        shadow="receive: false"
+        position="-14 -5.5 4"
+        animation="property: position; to: -14 -5.1 4; dur: 3000; easing: easeOutQuad; dir: alternate; loop: true"
+        scale="1 1 1"
+        animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
+        animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
+        animation__mousedown_scale="property: scale; to: 1.1 1.1 1.1; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
+        animation__mouseleave_scale="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
+      >
+        <!-- <a-image id="headphones-poi" look-at="#camera" src="#img_poi"  animation-click-handler="headphones" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
+      </a-image>
+
+
       <!-- Background Image -->
       <a-sky src="#img_sky"></a-sky>
 
@@ -215,6 +242,10 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Right now spaces live in different files, this element is used to hide the transition -->
+    <div class="frame-blend-overlay">
     </div>
 
     <!-- Loads custom scripts for events and animations -->

@@ -1,3 +1,7 @@
+// I would like to apologize for this horribly oranized, super WET code.
+// My only excuse is that I had to learn an EXTREMELY COMPLEX library, and make TWO rooms in less than 48 hours.
+// So there you have it, enjoy!
+
 var allCustomAnimationsHelper = {
 
   updateHTMLDialogText: function( input ){
@@ -404,6 +408,35 @@ var allCustomAnimationsHelper = {
 
 
 
+
+/**
+ * Switches Rooms, which right now is switching html files,
+ * because I ran out of time to program them into a single application
+ */
+AFRAME.registerComponent('framechange-click-handler', {
+  init: function () {
+
+    this.el.addEventListener('mouseenter', function () {
+      console.log('switch rooms!');
+    }); // end addEventListener mouseenter
+
+
+    this.el.addEventListener('mousedown', function () {
+      console.log('click');
+      var fileTraget = this.getAttribute('framechange-click-handler')
+      var camera            = document.getElementById('camera');
+      var frameBlendOverlay = document.querySelector('.frame-blend-overlay');
+
+      camera.setAttribute("animation", "property: camera.zoom; from: 0.8; to: 2; dur: 350;");
+      frameBlendOverlay.classList.add('this--visible');
+
+      setTimeout(function(){
+        window.location.href = fileTraget;
+      }, 175);
+
+    }); // end addEventListener mousedown
+  } // end init
+});
 
 
 
