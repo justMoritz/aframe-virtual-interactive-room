@@ -36,6 +36,7 @@
         <img id="img_sky" src="src/Villas-on-Rio_B6_360_2.jpg">
         <img id="img_poi" src="src/poi-min.png">
         <img id="img_headphones" src="src/headphones-min.png">
+        <img id="img_lighting" src="src/lighting.png">
         <img id="img_direction-in" src="src/direction-in-min.png">
         <img id="img_poi" src="src/poi-min.png">
         <img id="img_button" src="src/button-min.png">
@@ -50,7 +51,7 @@
 
 
       <!-- Camera with Raycaster -->
-      <a-entity id='cameraWrapper' rotation="0 105.768 0" position="-0.12365 1.34538 0.72366" >
+      <a-entity id='cameraWrapper' rotation="0 95 0" position="-0.12365 1.34538 0.72366" >
         <a-entity id="camera" camera="far: 5000; zoom: 0.8" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
       </a-entity>
 
@@ -78,7 +79,6 @@
 
       <!-- clothes Drawer functinoality set in main.js through the animation-click-handler attirbute -->
       <a-box
-        animation-click-handler="clothes_drawer"
         id="clothes-drawer"
         class="not-clickable custom-animation-object clothes_drawer_click_class"
         shadow="cast: false"
@@ -90,7 +90,6 @@
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
         <a-box
-          animation-click-handler="clothes_drawer"
           id="clothes-drawer-2"
           class="not-clickable custom-animation-object clothes_drawer_click_class"
           shadow="cast: false"
@@ -101,16 +100,12 @@
           animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
           animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
         >
-          <a-image id="clothes-drawer-poi" geometry="primitive: circle; radius: 0.7" look-at="#camera" src="#img_poi" animation-click-handler="clothes_drawer" alpha-test position="4.885 3.225 2.313" class="clickable" animation="property: position; to: 4.885 2.225 2.313; dur: 4050; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+          <a-image id="clothes-drawer-poi" geometry="primitive: circle; radius: 0.7" look-at="#camera" src="#img_poi" animation-click-handler="clothes_drawer" alpha-test position="4.885 3.225 2.313" class="clickable"
+          animation="property: position; to: 4.885 6 2.313; dur: 2800; easing: easeOutQuad; dir: alternate; loop: 2"
+          animation__loop="property: position; to: 4.885 4 2.313; dur: 4050; easing: easeOutQuad; delay: 6000; dir: alternate; loop: true"
+          ></a-image>
         </a-box>
       </a-box>
-
-      <!-- This is the info dialog for the clothes drawer, with close and show more buttons -->
-      <a-image src="#img_clothes-drawer" id="clothes-drawer-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="-4.060 -1.200 8.144" visible="false">
-        <a-entity id="clothes-drawer-dialog-close" animation-click-handler="clothes_drawer" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="clothes-drawer-dialog-internal"></a-entity>
-        <a-entity id="clothes-drawer-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="clothes-drawer" class="clothes-drawer-dialog-internal"></a-entity>
-      </a-image>
-
 
 
       <!-- Curtain functinoality set in main.js through the animation-click-handler attirbute -->
@@ -128,12 +123,6 @@
       >
         <a-image class="clickable" id="curtain-poi" src="#img_poi" geometry="primitive: circle; radius: 0.5" animation-click-handler="curtain" alpha-test position="-1.12 -0.5 0.5" class="not-clickable" animation="property: position; to: -1.12 -0.6 0.5; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
       </a-box>
-      <!-- This is the info dialog for the curtain, with close and show more buttons -->
-      <a-image src="#img_curtain" id="curtain-dialog" scale="0.66 0.66 0.66" look-at="#camera" shadow="cast: false; receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="-4.328 1.4 -0.9" visible="false">
-        <a-entity id="curtain-dialog-close" animation-click-handler="curtain" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="curtain-dialog-internal"></a-entity>
-        <a-entity id="curtain-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="curtain" class="curtain-dialog-internal"></a-entity>
-      </a-image>
-
 
 
       <!-- Headboard handlers -->
@@ -155,12 +144,6 @@
         animation__mousedown_scale="property: scale; to: 1.05 1.05 1.05; startEvents: mouseenter; dur: 500"
         animation__mouseleave_scale="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
       >
-      </a-image>
-
-      <!-- This is the info dialog for the headoard, with close and show more buttons -->
-      <a-image src="#img_headboard" id="headboard-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="-4.340 3.083 7.9" visible="false">
-        <a-entity id="headboard-dialog-close" animation-click-handler="headboard" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="headboard-dialog-internal"></a-entity>
-        <a-entity id="headboard-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="headboard" class="headboard-dialog-internal"></a-entity>
       </a-image>
 
 
@@ -186,14 +169,28 @@
         <!-- <a-image id="headphones-poi" look-at="#camera" src="#img_poi"  animation-click-handler="headphones" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
       </a-image>
 
-      <!-- This is the info dialog for the headphones, with close and show more buttons -->
-      <a-image src="#img_headphones-d" id="headphones-dialog" look-at="#camera" shadow="cast:  true;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25;" position="-7.575 1.25 5.487" visible="false">
-        <a-entity id="headphones-dialog-close" shadow="cast: false" animation-click-handler="headphones" geometry="primitive: plane;" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="headphones-dialog-internal"></a-entity>
-        <a-entity id="headphones-dialog-more" shadow="cast: false" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="headphones" class="headphones-dialog-internal"></a-entity>
+
+
+      <!-- lighting -->
+      <a-image
+        animation-click-handler="lighting"
+        id="lighting"
+        class="clickable"
+        look-at="#camera"
+        src="#img_lighting"
+        alpha-test=""
+        material="opacity: 0.75"
+        geometry="width: 1.5; height: 1.5"
+        shadow="receive: false"
+        position="-20.75 7.8 5"
+        animation="property: position; to: -20.75 9 5; dur: 3650; easing: easeOutQuad; dir: alternate; loop: true"
+        scale="1.75 1.75 1.75"
+        animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
+        animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
+        animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
+        animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
+      >
       </a-image>
-
-
-
 
 
 
@@ -264,6 +261,10 @@
         },
         headboard:{
           title: 'Designer Cushioned Headboard',
+          content: 'Floor-to-Ceiling, Plush, Leather Designer Headboards.',
+        },
+        lighting:{
+          title: 'Soaring Like an Eagle',
           content: 'Floor-to-Ceiling, Plush, Leather Designer Headboards.',
         },
       }

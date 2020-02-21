@@ -28,32 +28,38 @@
     z-index: 99999999;
     background-size: contain;
     background-repeat: no-repeat; }
+  .dialogue__wrapper {
+    background: rgba(255, 255, 255, 0.75); }
   .dialogue__text {
-    background: #fff;
     display: block;
     position: absolute;
     align-items: center;
     justify-content: center;
+    text-align: center;
     left: 50%;
     top: 50%;
     overflow: scroll;
     transform: translate(-50%, -50%);
-    width: calc(100% - 70px);
-    height: calc(100% - 70px);
-    max-width: 1000px;
-    max-height: 1000px;
+    width: auto;
+    height: auto;
+    max-width: 80vw;
+    max-height: 80vh;
     box-shadow: 10px 10px 55px rgba(0, 0, 0, 0.15);
     animation: float 6s ease-in-out infinite; }
   .dialogue__inner {
     padding: 8%;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 300;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.45em;
-    color: #263d4a; }
+    color: #263d4a;
+    max-width: 600px; }
+    @media (max-width: 767px) {
+      .dialogue__inner {
+        font-size: 14px; } }
   .dialogue__headline {
     font-family: questa-grande, serif;
-    font-size: 52px;
+    font-size: 32px;
     margin: 0 0 0.2em;
     line-height: 0.8em;
     letter-spacing: -0.06em;
@@ -61,13 +67,11 @@
     letter-spacing: -.07em;
     font-weight: 400;
     line-height: 0.8em;
-    letter-spacing: -0.02em; }
+    letter-spacing: -0.02em;
+    max-width: 600px; }
     @media (min-width: 767px) {
       .dialogue__headline {
         font-size: 72px; } }
-    @media (min-width: 1400px) {
-      .dialogue__headline {
-        font-size: 152px; } }
 
 @keyframes float {
   0% {
@@ -82,7 +86,7 @@
 .patent-pending {
   position: fixed;
   top: 0;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.2);
   padding: 5px;
   font-size: 10px;
   font-weight: 300;
@@ -102,5 +106,10 @@
   opacity: 0; }
   .frame-blend-overlay.this--visible {
     opacity: 1; }
+
+.canvascontainer {
+  transition: filter 200ms; }
+  .canvascontainer.this--blur {
+    filter: blur(7px); }
 
 /*# sourceMappingURL=styles.css.map */

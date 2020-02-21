@@ -33,9 +33,10 @@
 
       <!-- All Images -->
       <a-assets>
-        <img id="img_sky" src="src/Villas-on-Rio_B6_360_1.jpg">
+        <img id="img_sky" src="src/Villas-on-Rio_B6_360_1-2.jpg">
         <img id="img_poi" src="src/poi-min.png">
         <img id="img_iphone" src="src/iphone-min.png">
+        <img id="img_wireless" src="src/wireless.png">
         <img id="img_ipad" src="src/ipad-min.png">
         <img id="img_headphones" src="src/headphones-min.png">
         <img id="img_direction-in" src="src/direction-in-min.png">
@@ -82,6 +83,7 @@
       <!-- Desk Drawer functinoality set in main.js through the animation-click-handler attirbute -->
       <a-box
         sanimation-click-handler="desk_drawer"
+        dialog-more-button="desk-drawer"
         id="desk-drawer"
         class="not-clickable custom-animation-object"
         shadow="cast: false"
@@ -97,10 +99,11 @@
       </a-box>
 
       <!-- This is the info dialog for the desk drawer, with close and show more buttons -->
-      <a-image src="#img_desk-drawer" id="desk-drawer-dialog" look-at="#camera" shadow="cast:  true;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="7.92461 -0.75065 -0.30113" visible="false" scale="1.3 1.3 1.3">
+      <!-- We're not using it anymore, but I wanted to keep at least one :'(  -->
+      <!-- <a-image src="#img_desk-drawer" id="desk-drawer-dialog" look-at="#camera" shadow="cast:  true;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="7.92461 -0.75065 -0.30113" visible="false" scale="1.3 1.3 1.3">
         <a-entity id="desk-drawer-dialog-close" animation-click-handler="desk_drawer" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="desk-drawer-dialog-internal"></a-entity>
         <a-entity id="desk-drawer-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="desk-drawer" class="desk-drawer-dialog-internal"></a-entity>
-      </a-image>
+      </a-image> -->
 
 
       <!-- This box hides both the overflow of the drawer underneath as well as provide a surface for shadows -->
@@ -122,18 +125,6 @@
       >
         <a-image id="cooler-drawer-poi" look-at="#camera" src="#img_poi" geometry="primitive: circle; radius: 0.8" animation-click-handler="desk_drawer" alpha-test position="-2.910 -0.290 -0.4" class="not-clickable" animation="property: position; to: -2.910 -0.120 -0.4; dur: 3700; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
       </a-box>
-
-      <!-- Info dialog for the cooler drawer, with close and show more buttons -->
-      <a-image src="#img_cooler-drawer" id="cooler-drawer-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="4.3 1.8 6.4" visible="false">
-        <a-entity id="cooler-drawer-dialog-close" animation-click-handler="cooler_drawer" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="cooler-drawer-dialog-internal"></a-entity>
-        <a-entity id="cooler-drawer-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="cooler-drawer" class="cooler-drawer-dialog-internal"></a-entity>
-      </a-image>
-
-      <!-- NOT USED SECOND Info dialog for the cooler drawer, for the wireless charging, with close and show more buttons -->
-      <!-- <a-entity id="cooler-drawer-dialog-2" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 3" position="0.857 1.265 7.805" visible="false">
-        <a-entity id="cooler-drawer-dialog-2-close" animation-click-handler="cooler_drawer" geometry="" position="1.25 2.25 0" class="cooler-drawer-dialog-internal"></a-entity>
-        <a-entity id="cooler-drawer-dialog-2-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" dialog-more-button="cooler-drawer" class="cooler-drawer-dialog-internal"></a-entity>
-      </a-entity> -->
 
 
       <!-- Curtain functinoality set in main.js through the animation-click-handler attirbute -->
@@ -227,10 +218,27 @@
       ><
         <!-- <a-image id="iphone-poi" look-at="#camera" src="#img_poi" animation-click-handler="iphone" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
       </a-image>
-      <!-- This is the info dialog for the iphone, with close and show more buttons -->
-      <a-image src="#img_iphone-d"  id="iphone-dialog" look-at="#camera" shadow="cast:  true;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="2.687 1.636 -5.713" visible="false">
-        <a-entity id="iphone-dialog-close" animation-click-handler="iphone" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="iphone-dialog-internal"></a-entity>
-        <a-entity id="iphone-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="iphone" class="iphone-dialog-internal"></a-entity>
+
+
+      <!-- wireless / Charging Information -->
+      <a-image
+        animation-click-handler="wireless"
+        id="wireless"
+        class="clickable"
+        look-at="#camera"
+        src="#img_wireless"
+        alpha-test=""
+        material="opacity: 0.85"
+        geometry="primitive: circle; radius: 1.2"
+        scale="1.25 1.25 1.25"
+        shadow="receive: false"
+        position="7.5 -0.85 7.25"
+        animation="property: position; to: 7.5 -1.25 7.25; dur: 3400; easing: easeOutQuad; dir: alternate; loop: true"
+        animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
+        animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
+        animation__mousedown_scale="property: scale; to: 1.4 1.4 1.4; startEvents: mouseenter; dur: 500"
+        animation__mouseleave_scale="property: scale; to: 1.25 1.25 1.25; startEvents: mouseleave; dur: 500"
+      ><
       </a-image>
 
 
@@ -260,13 +268,6 @@
         <!-- <a-image id="ipad-poi" look-at="#camera" src="#img_poi" animation-click-handler="ipad" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
       </a-image>
 
-      <!-- This is the info dialog for the ipad, with close and show more buttons -->
-      <a-image src="#img_ipad-d" id="ipad-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="-6.860 2.385 -3.014" visible="false">
-        <a-entity id="ipad-dialog-close" animation-click-handler="ipad" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="ipad-dialog-internal"></a-entity>
-        <a-entity id="ipad-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="ipad" class="ipad-dialog-internal"></a-entity>
-      </a-image>
-
-
       <!-- Headphones -->
       <a-image
         animation-click-handler="headphones"
@@ -288,13 +289,6 @@
       >
         <!-- <a-image id="headphones-poi" look-at="#camera" src="#img_poi"  animation-click-handler="headphones" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
       </a-image>
-
-      <!-- This is the info dialog for the headphones, with close and show more buttons -->
-      <a-image src="#img_headphones-d" id="headphones-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25;" position="-7.575 1.25 5.487" visible="false">
-        <a-entity id="headphones-dialog-close" shadow="cast: false" animation-click-handler="headphones" geometry="primitive: plane;" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="headphones-dialog-internal"></a-entity>
-        <a-entity id="headphones-dialog-more" shadow="cast: false" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="headphones" class="headphones-dialog-internal"></a-entity>
-      </a-image>
-
 
       <!-- Link to Exterior -->
       <a-image
@@ -351,8 +345,8 @@
           content: 'Work on your laptop, do homework, or eat meals on this desk on a pull-out track.',
         },
         cooler_drawer:{
-          title: 'Insulated Beverage Drawer & Wireless iPhone Charging Port',
-          content: 'Wirelessly charge your phone on this invisible, built-in phone charger. Store Drinks and Snacks in a First-of-its-Kind Insulated Pod Drawer – WOW!!',
+          title: 'Insulated Beverage Drawer',
+          content: 'Store Drinks and Snacks in a First-of-its-Kind Insulated Pod Drawer – WOW!!',
         },
         curtain:{
           title: 'Designer Privacy Curtain',
@@ -377,6 +371,10 @@
         headboard:{
           title: 'Designer Cushioned Headboard',
           content: 'Floor-to-Ceiling, Plush, Leather Designer Headboards.',
+        },
+        wireless:{
+          title: 'Wireless iPhone Charging Port',
+          content: 'Wirelessly charge your phone on this invisible, built-in phone charger.',
         },
       }
     </script>
