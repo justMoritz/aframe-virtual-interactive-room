@@ -65,17 +65,13 @@
       <!-- <a-sphere position="6.96188 -0.37915 -9.11629" id="pizzaSphere" radius="1.25" color="#EF2D5E" shadow="" event-set__enter="[object Object]" event-set__leave="[object Object]" material="" geometry="radius: 0.5" animation="property: position; to: 5 -4.6 2; dur: 5500; dir: alternate; easing: linear; loop: true"></a-sphere> -->
 
 
-      <!-- Far-side Counter Top Matte -->
-      <a-box shadow="cast: false" sshadow-material="" position="8.72688 -3.66488 -7.75" width="4" height="4" geometry="width: 4.5; height: 2.04; depth: 6" material="opacity: 0.25"></a-box>
+      <!-- Door- and bedframe mattes -->
+      <a-box shadow="cast: false" shadow-material="" position="-6.95214 -2.97154 10.46272" geometry="width: 0.5; height: 15; depth: 6" material="opacity: 0.25"></a-box>
+      <a-box shadow="cast: false" shadow-material="" position="-6.952 -2.972 -5.86206" geometry="width: 0.5; height: 15; depth: 6.3" material="opacity: 0.25"></a-box>
+      <a-box shadow="cast: false" shadow-material="" position="-12.25215 -9.49217 2.34542" geometry="width: 10; height: 4; depth: 0.13" material="opacity: 0.25"></a-box>
+      <a-box shadow="cast: false" shadow-material="" position="-17.30051 -7.2446 2.37312" geometry="width: 20; height: 0.2; depth: 17" material="opacity: 0.25"></a-box>
 
-
-<!-- Door- and bedframe mattes -->
-<a-box shadow="cast: false" shadow-material="" position="-6.95214 -2.97154 10.46272" geometry="width: 0.5; height: 15; depth: 6" material="opacity: 0.25"></a-box>
-<a-box shadow="cast: false" shadow-material="" position="-6.952 -2.972 -5.86206" geometry="width: 0.5; height: 15; depth: 6.3" material="opacity: 0.25"></a-box>
-<a-box shadow="cast: false" shadow-material="" position="-12.25215 -9.49217 2.34542" geometry="width: 10; height: 4; depth: 0.13" material="opacity: 0.25"></a-box>
-<a-box shadow="cast: false" shadow-material="" position="-17.30051 -7.2446 2.37312" geometry="width: 20; height: 0.2; depth: 17" material="opacity: 0.25"></a-box>
-
-<a-box shadow="cast: false" shadow-material="" position="-7.29852 -6.8679 -1.96624" geometry="width: 0.2; height: 2; depth: 4" material="opacity: 0.25;"></a-box>
+      <a-box shadow="cast: false" shadow-material="" position="-7.29852 -6.8679 -1.96624" geometry="width: 0.2; height: 2; depth: 4" material="opacity: 0.25;"></a-box>
 
       <!-- This box hides both the overflow of the drawer underneath as well as provide a surface for shadows -->
       <a-box id="desk-top" class="clickable" shadow="cast: false" sshadow-material="" position="8.77143 -4.62456 0.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 9.37" material="opacity: 0.0000"></a-box>
