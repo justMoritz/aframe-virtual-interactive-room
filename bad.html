@@ -1,9 +1,3 @@
-<?php
-
-  $globalVersion = '1.0.0';
-
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -137,7 +131,9 @@
 
       <!-- Curtain functinoality set in main.js through the animation-click-handler attirbute -->
       <a-box
+        animation-click-handler="curtain"
         id="curtain"
+        class="clickable custom-animation-object"
         shadow="cast: false"
         sshadow-material=""
         position="3.646 0.463 11.643"
@@ -147,7 +143,7 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image class="clickable" id="curtain-poi" look-at="#camera" src="#img_poi"  animation-click-handler="curtain" alpha-test position="-2.55 -0.40 -1" class="not-clickable"></a-image>
+        <a-image id="curtain-poi" look-at="#camera" src="#img_poi"  animation-click-handler="curtain" alpha-test position="-2.55 -0.40 0" class="not-clickable"></a-image>
       </a-box>
       <!-- This is the info dialog for the curtain, with close and show more buttons -->
       <a-image src="#img_curtain" id="curtain-dialog" look-at="#camera" shadow="cast: false; receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="-3.366 1.400 6.560" visible="false">
@@ -158,7 +154,9 @@
 
       <!-- Television and Apple TV Handlers -->
       <a-box
+        animation-click-handler="television"
         id="television"
+        class="clickable custom-animation-object"
         shadow="cast: false"
         sshadow-material=""
         position="11.16747 1.936 0.12"
@@ -168,7 +166,7 @@
         animation__mousedown="property: components.material.material.color; type: color; from: #ff7777; to: #7777ff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image id="television-poi" class="clickable" rotation="0 0 0" src="#img_poi" animation-click-handler="television" alpha-test position="0 0 2" class="not-clickable"></a-image>
+        <a-image id="television-poi" rotation="0 0 0" src="#img_poi" animation-click-handler="television" alpha-test position="0 0 2" class="not-clickable"></a-image>
         <a-image id="television-appletv" rotation="0 0 0" scale="2 2 2" geometry="height: 1; width: 1.666" src="#img_appletv" animation-click-handler="television" alpha-test position="0 -3 -2" shadow="cast: true;" material="opacity: 0;" class="not-clickable"></a-image>
       </a-box>
 
@@ -320,35 +318,35 @@
       var dialogueInformation = {
         desk_drawer:{
           title: 'Pull-out Desk',
-          content: 'Work on your laptop, do homework, or eat meals on this desk on a pull-out track.',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         },
         cooler_drawer:{
           title: 'Insulated Beverage Drawer & Wireless iPhone Charging Port',
-          content: 'Wirelessly charge your phone on this invisible, built-in phone charger. Store Drinks and Snacks in a First-of-its-Kind Insulated Pod Drawer – WOW!!',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         },
         curtain:{
           title: 'Designer Privacy Curtain',
-          content: 'Curtain Curated by Interior Designer for Pod Privacy on a Seamless Track with Heavy Fabric to Cut out Noise.',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         },
         iphone:{
           title: 'USB, HDMI, Built-in Charging Ports',
-          content: 'USB, HDMI, and Power Plugs Galore for Electronics Charging, Game Consoles, and Accessories.',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         },
         ipad:{
           title: 'Connectivity',
-          content: 'With TV, Lighting, Wireless Charging, Bluetooth, and Wireless Headphone Connectivity, You Have it All.',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         },
         headphones:{
           title: 'Airport/Bluetooth (Private)',
-          content: '',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         },
         television:{
           title: '50" Multimedia TV & AppleTV',
-          content: 'Huge Personal Screen for Plug and Play TV/Computer, including AppleTV for each screen—allowing for Private, Wireless, Bluetooth Headphone Connections in Your Separate Pods.',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         },
         headboard:{
           title: 'Designer Cushioned Headboard',
-          content: 'Floor-to-Ceiling, Plush, Leather Designer Headboards.',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
         },
       }
     </script>

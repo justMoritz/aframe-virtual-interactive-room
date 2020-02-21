@@ -1,48 +1,50 @@
 var allCustomAnimationsHelper = {
 
   updateHTMLDialogText: function( input ){
-    var title   = document.querySelector(".dialogue__headline");
-    var content = document.querySelector(".dialogue__content");
-    title.innerHTML = dialogueInformation[input].title;
-    content.innerHTML = dialogueInformation[input].content;
+    // var title   = document.querySelector(".dialogue__headline");
+    // var content = document.querySelector(".dialogue__content");
+    // title.innerHTML = dialogueInformation[input].title;
+    // content.innerHTML = dialogueInformation[input].content;
   },
 
   closeAllOthers: function( input ){
     //Checks which animation was called, and foce-closes all others
-    if(input != 'desk_drawer')
-      allCustomAnimationsHelper.desk_drawer(true);
-    if(input != 'cooler_drawer')
-      allCustomAnimationsHelper.cooler_drawer(true);
-    if(input != 'curtain')
-      allCustomAnimationsHelper.curtain(true);
-    if(input != 'iphone')
-      allCustomAnimationsHelper.iphone(true);
-    if(input != 'ipad')
-      allCustomAnimationsHelper.ipad(true);
-    if(input != 'headphones')
-      allCustomAnimationsHelper.headphones(true);
-    if(input != 'television')
-      allCustomAnimationsHelper.television(true);
-    if(input != 'headboard')
-      allCustomAnimationsHelper.headboard(true);
+    // if(input != 'desk_drawer')
+    //   allCustomAnimationsHelper.desk_drawer(true);
+    // if(input != 'cooler_drawer')
+    //   allCustomAnimationsHelper.cooler_drawer(true);
+    // if(input != 'curtain')
+    //   allCustomAnimationsHelper.curtain(true);
+    // if(input != 'iphone')
+    //   allCustomAnimationsHelper.iphone(true);
+    // if(input != 'ipad')
+    //   allCustomAnimationsHelper.ipad(true);
+    // if(input != 'headphones')
+    //   allCustomAnimationsHelper.headphones(true);
+    // if(input != 'television')
+    //   allCustomAnimationsHelper.television(true);
+    // if(input != 'headboard')
+    //   allCustomAnimationsHelper.headboard(true);
   },
 
 
-  desk_drawer: function( forceClose ){
-    var drawer   = document.getElementById("desk-drawer");
-    var dialogue = document.getElementById("desk-drawer-dialog");
-    var poi      = document.getElementById("desk-drawer-poi");
-    var internal = document.querySelectorAll(".desk-drawer-dialog-internal");
+  clothes_drawer: function( forceClose ){
+    var drawer   = document.getElementById("clothes-drawer");
+    var drawer_2 = document.getElementById("clothes-drawer-2");
+    var dialogue = document.getElementById("clothes-drawer-dialog");
+    var poi      = document.getElementById("clothes-drawer-poi");
+    var internal = document.querySelectorAll(".clothes-drawer-dialog-internal");
     // var camera   = document.getElementById('camera');
 
     // opening animation and dialogue activation
     var _set = function(){
-      drawer.setAttribute("animation", "property: position; to: 6 -4.99191 0.125; dur: 500; easing: easeOutQuad; loop: false");
+      drawer.setAttribute("animation", "property: position; to: -8.25 -8.824 4.917; delay: 80; dur: 500; easing: easeOutQuad; loop: false");
+      drawer_2.setAttribute("animation", "property: position; to: 0.15 0 -5.141; dur: 610; easing: easeOutQuad; loop: false");
       drawer.classList.add('this--open');
       dialogue.setAttribute("visible", "true");
       dialogue.setAttribute("animation", "property: material.opacity; from: 0; to: 0.85; dur: 350;");
       poi.setAttribute("visible", "false");
-      // camera.setAttribute("look-at", "#desk-drawer-dialog");
+      // camera.setAttribute("look-at", "#clothes-drawer-dialog");
 
       for(var i=0; i<internal.length; i++ )
         internal[i].classList.add('clickable')
@@ -50,7 +52,8 @@ var allCustomAnimationsHelper = {
 
     // hides dialoge and resets animation
     var _unset = function(){
-      drawer.setAttribute("animation", "property: position; to: 8.77143 -4.99191 0.125; dur: 500; easing: easeOutQuad; loop: false");
+      drawer.setAttribute("animation", "property: position; to: -9.679 -8.824 4.917; dur: 500; easing: easeOutQuad; loop: false");
+      drawer_2.setAttribute("animation", "property: position; to: 0 0 -5.141; dur: 500; easing: easeOutQuad; loop: false");
       drawer.classList.remove('this--open');
       dialogue.setAttribute("visible", "false");
       dialogue.setAttribute("animation", "property: material.opacity; from: 1; to: 0; dur: 350;");
