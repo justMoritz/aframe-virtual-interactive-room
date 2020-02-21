@@ -38,7 +38,7 @@ var allCustomAnimationsHelper = {
 
     // opening animation and dialogue activation
     var _set = function(){
-      drawer.setAttribute("animation", "property: position; to: -8.25 -8.824 4.917; delay: 80; dur: 500; easing: easeOutQuad; loop: false");
+      drawer.setAttribute("animation", "property: position; to: -8.25 -8.824 4.917; delay: 100; dur: 500; easing: easeOutQuad; loop: false");
       drawer_2.setAttribute("animation", "property: position; to: 0.15 0 -5.141; dur: 610; easing: easeOutQuad; loop: false");
       drawer.classList.add('this--open');
       dialogue.setAttribute("visible", "true");

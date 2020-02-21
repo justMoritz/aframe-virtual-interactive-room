@@ -114,7 +114,7 @@
       </a-box>
 
       <!-- This is the info dialog for the clothes drawer, with close and show more buttons -->
-      <a-image src="#img_clothes-drawer" id="clothes-drawer-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="8.72461 -0.75065 -0.30113" visible="false">
+      <a-image src="#img_clothes-drawer" id="clothes-drawer-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="-4.060 -1.200 8.144" visible="false">
         <a-entity id="clothes-drawer-dialog-close" animation-click-handler="clothes_drawer" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="clothes-drawer-dialog-internal"></a-entity>
         <a-entity id="clothes-drawer-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="clothes-drawer" class="clothes-drawer-dialog-internal"></a-entity>
       </a-image>
