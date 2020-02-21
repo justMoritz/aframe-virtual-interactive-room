@@ -1,30 +1,20 @@
 var allCustomAnimationsHelper = {
 
   updateHTMLDialogText: function( input ){
-    // var title   = document.querySelector(".dialogue__headline");
-    // var content = document.querySelector(".dialogue__content");
-    // title.innerHTML = dialogueInformation[input].title;
-    // content.innerHTML = dialogueInformation[input].content;
+    var title   = document.querySelector(".dialogue__headline");
+    var content = document.querySelector(".dialogue__content");
+    title.innerHTML = dialogueInformation[input].title;
+    content.innerHTML = dialogueInformation[input].content;
   },
 
   closeAllOthers: function( input ){
     //Checks which animation was called, and foce-closes all others
-    // if(input != 'desk_drawer')
-    //   allCustomAnimationsHelper.desk_drawer(true);
-    // if(input != 'cooler_drawer')
-    //   allCustomAnimationsHelper.cooler_drawer(true);
-    // if(input != 'curtain')
-    //   allCustomAnimationsHelper.curtain(true);
-    // if(input != 'iphone')
-    //   allCustomAnimationsHelper.iphone(true);
-    // if(input != 'ipad')
-    //   allCustomAnimationsHelper.ipad(true);
-    // if(input != 'headphones')
-    //   allCustomAnimationsHelper.headphones(true);
-    // if(input != 'television')
-    //   allCustomAnimationsHelper.television(true);
-    // if(input != 'headboard')
-    //   allCustomAnimationsHelper.headboard(true);
+    if(input != 'curtain')
+      allCustomAnimationsHelper.curtain(true);
+    if(input != 'headphones')
+      allCustomAnimationsHelper.headphones(true);
+    if(input != 'headboard')
+      allCustomAnimationsHelper.headboard(true);
   },
 
 
@@ -136,8 +126,8 @@ var allCustomAnimationsHelper = {
     // opening animation and dialogue activation
     var _set = function(){
       // console.log('not open')
-      drawer.setAttribute("animation", "property: position; to: 1 0.463 11.643; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.setAttribute("animation__2", "property: scale; to: 1.33 1 1; dur: 500; easing: easeOutQuad; loop: false");
+      drawer.setAttribute("animation", "property: position; to: -5.834 0.178 0.529; dur: 500; easing: easeOutQuad; loop: false");
+      drawer.setAttribute("animation__2", "property: scale; to: 1.66 1 1; dur: 500; easing: easeOutQuad; loop: false");
       drawer.classList.add('this--open');
       dialogue.setAttribute("visible", "true");
       dialogue.setAttribute("animation", "property: material.opacity; from: 0; to: 0.85; dur: 350;");
@@ -149,7 +139,7 @@ var allCustomAnimationsHelper = {
 
     // hides dialoge and resets animation
     var _unset = function(){
-      drawer.setAttribute("animation", "property: position; to: 3.646 0.463 11.643; dur: 500; easing: easeOutQuad; loop: false");
+      drawer.setAttribute("animation", "property: position; to: -5.834 0.178 -1.029; dur: 500; easing: easeOutQuad; loop: false");
       drawer.setAttribute("animation__2", "property: scale; to: 1 1 1; dur: 500; easing: easeOutQuad; loop: false");
       drawer.classList.remove('this--open');
       dialogue.setAttribute("visible", "false");
