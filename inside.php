@@ -35,6 +35,9 @@
       <a-assets>
         <img id="img_sky" src="src/Villas-on-Rio_B6_360_1-2.jpg">
         <img id="img_poi" src="src/poi-min.png">
+        <img id="img_circle0" src="src/circle0.png">
+        <img id="img_circle1" src="src/circle1.png">
+        <img id="img_circle2" src="src/circle2.png">
         <img id="img_iphone" src="src/iphone-min.png">
         <img id="img_wireless" src="src/wireless.png">
         <img id="img_ipad" src="src/ipad-min.png">
@@ -95,16 +98,8 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image id="desk-drawer-poi" look-at="#camera" src="#img_poi" geometry="primitive: circle; radius: 0.8" animation-click-handler="desk_drawer" scale="1 1 1" alpha-test position="-2.7 -0.25 0" class="clickable" animation="property: position; to: -2.7 -0.75 0; dur: 4200; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image id="desk-drawer-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.6" desktop-geometry="primitive: circle; radius: 0.40" animation-click-handler="desk_drawer" scale="1 1 1" alpha-test position="-2.7 -0.25 0" class="clickable" animation="property: position; to: -2.7 -0.75 0; dur: 4200; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
       </a-box>
-
-      <!-- This is the info dialog for the desk drawer, with close and show more buttons -->
-      <!-- We're not using it anymore, but I wanted to keep at least one :'(  -->
-      <!-- <a-image src="#img_desk-drawer" id="desk-drawer-dialog" look-at="#camera" shadow="cast:  true;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="7.92461 -0.75065 -0.30113" visible="false" scale="1.3 1.3 1.3">
-        <a-entity id="desk-drawer-dialog-close" animation-click-handler="desk_drawer" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="desk-drawer-dialog-internal"></a-entity>
-        <a-entity id="desk-drawer-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="desk-drawer" class="desk-drawer-dialog-internal"></a-entity>
-      </a-image> -->
-
 
       <!-- This box hides both the overflow of the drawer underneath as well as provide a surface for shadows -->
       <a-box id="cooler-top" shadow="cast: false" shadow-material="" position="8.771 -2.836 8.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 6.6" material="opacity: 0.400"></a-box>
@@ -123,7 +118,7 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image id="cooler-drawer-poi" look-at="#camera" src="#img_poi" geometry="primitive: circle; radius: 0.8" animation-click-handler="desk_drawer" alpha-test position="-2.910 -0.290 -0.4" class="not-clickable" animation="property: position; to: -2.910 -0.120 -0.4; dur: 3700; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image id="cooler-drawer-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.6" desktop-geometry="primitive: circle; radius: 0.4" animation-click-handler="desk_drawer" alpha-test position="-2.910 -0.290 -0.4" class="not-clickable" animation="property: position; to: -2.910 -0.120 -0.4; dur: 3700; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
       </a-box>
 
 
@@ -139,10 +134,10 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image class="clickable" id="curtain-poi" look-at="#camera" src="#img_poi" geometry="primitive: circle; radius: 0.8" animation-click-handler="curtain" alpha-test position="-2.55 -0.40 -1" class="not-clickable" animation="property: position; to: -2.55 -0.60 -1; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image class="clickable" id="curtain-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.57" desktop-geometry="primitive: circle; radius: 0.325" animation-click-handler="curtain" alpha-test position="-2.55 -0.40 -1" class="not-clickable" animation="property: position; to: -2.55 -0.60 -1; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
       </a-box>
       <!-- This is the info dialog for the curtain, with close and show more buttons -->
-      <a-image src="#img_curtain" id="curtain-dialog" look-at="#camera" shadow="cast: false; receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="0 1.400 6.560" visible="false" scale="0.8 0.8 0.8">
+      <a-image src="#img_circle0" id="curtain-dialog" look-at="#camera" shadow="cast: false; receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="0 1.400 6.560" visible="false" scale="0.8 0.8 0.8">
         <a-entity id="curtain-dialog-close" animation-click-handler="curtain" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="curtain-dialog-internal"></a-entity>
         <a-entity id="curtain-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="curtain" class="curtain-dialog-internal"></a-entity>
       </a-image>
@@ -160,12 +155,12 @@
         animation__mousedown="property: components.material.material.color; type: color; from: #ff7777; to: #7777ff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image id="television-poi" class="clickable" rotation="0 0 0" src="#img_appletv" geometry="height: 1.55; width: 2" animation-click-handler="television" alpha-test position="0 0 2" class="not-clickable" animation="property: position; to: 0 -0.3 2; dur: 3800; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image id="television-poi" class="clickable" rotation="0 0 0" src="#img_circle0" geometry="primitive: circle; radius: 0.6" desktop-geometry="primitive: circle; radius: 0.4" animation-click-handler="television" alpha-test position="0 0 2" class="not-clickable" animation="property: position; to: 0 -0.3 2; dur: 3800; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
         <a-image id="television-appletv" rotation="0 0 0" scale="1.5 1.5 1.5" geometry="height: 1.55; width: 2" src="#img_appletv" animation-click-handler="television" alpha-test position="0 -3 -2" shadow="cast: true;" material="opacity: 0;" class="not-clickable"></a-image>
       </a-box>
 
       <!-- This is the info dialog for the desk drawer, with close and show more buttons -->
-      <a-image src="#img_television" id="television-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="6.428 2.48 0.4" visible="false">
+      <a-image src="#img_circle0" id="television-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="6.428 2.48 0.4" visible="false">
         <a-entity id="television-dialog-close" animation-click-handler="television" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="television-dialog-internal"></a-entity>
         <a-entity id="television-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="television" class="television-dialog-internal"></a-entity>
       </a-image>
@@ -179,10 +174,11 @@
         shadow="cast: false"
         sshadow-material=""
         position="-13.2 4.4 0.4"
-         geometry="primitive: circle; radius: 1"
+        geometry="primitive: circle; radius: 0.75"
+        desktop-geometry="primitive: circle; radius: 0.5"
         material="opacity: 0.95"
         rotation="0 -90 0"
-        src="#img_poi"
+        src="#img_circle0"
         animation="property: position; to: -13.2 3.6 0.4; dur: 2250; easing: easeOutQuad; dir: alternate; loop: true"
         animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
@@ -192,7 +188,7 @@
       </a-image>
 
       <!-- This is the info dialog for the desk drawer, with close and show more buttons -->
-      <a-image src="#img_headboard" id="headboard-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="-7.476 3.969 -2.664" visible="false" scale="1.15 1.15 1.15">
+      <a-image src="#img_circle0" id="headboard-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="-7.476 3.969 -2.664" visible="false" scale="1.15 1.15 1.15">
         <a-entity id="headboard-dialog-close" animation-click-handler="headboard" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="headboard-dialog-internal"></a-entity>
         <a-entity id="headboard-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="headboard" class="headboard-dialog-internal"></a-entity>
       </a-image>
@@ -204,10 +200,11 @@
         id="iphone"
         class="clickable"
         look-at="#camera"
-        src="#img_iphone"
+        src="#img_circle0"
         alpha-test=""
         material="opacity: 0.85"
-        geometry="height: 1.7; width: 1.6"
+        geometry="primitive: circle; radius: 0.45"
+        desktop-geometry="primitive: circle; radius: 0.3"
         shadow="receive: false"
         position="4.337 0.16674 -3.01447"
         animation="property: position; to: 4.337 0.32674 -3.01447; dur: 2000; easing: easeOutQuad; dir: alternate; loop: true"
@@ -226,10 +223,11 @@
         id="wireless"
         class="clickable"
         look-at="#camera"
-        src="#img_wireless"
+        src="#img_circle0"
         alpha-test=""
         material="opacity: 0.85"
-        geometry="primitive: circle; radius: 1.2"
+        geometry="primitive: circle; radius: 0.56"
+        desktop-geometry="primitive: circle; radius: 0.325"
         scale="1.25 1.25 1.25"
         shadow="receive: false"
         position="7.5 -0.85 7.25"
@@ -253,10 +251,11 @@
         class="clickable"
         look-at="#camera"
         animation="property: position; to: -10.28996 -2.5849 -3.01447; dur: 4500; easing: easeOutQuad; dir: alternate; loop: true"
-        src="#img_ipad"
+        src="#img_circle0"
         alpha-test=""
         material="opacity: 0.75"
-        geometry="height: 1.5; width: 1.35"
+        geometry="primitive: circle; radius: 0.5"
+        desktop-geometry="primitive: circle; radius: 0.33"
         shadow="receive: false"
         position="-10.28996 -3.5849 -3.01447"
         scale="1.25 1.25 1.25"
@@ -275,10 +274,11 @@
         class="clickable"
         look-at="#camera"
         animation="property: position; to: -10.06309 -6.0 7.29273; dur: 4000; easing: easeOutQuad; dir: alternate; loop: true"
-        src="#img_headphones"
+        src="#img_circle0"
         alpha-test=""
         material="opacity: 0.75"
-        geometry="primitive: circle; height: 1.7; width: 1.7"
+        geometry="primitive: circle; radius: 0.375;"
+        desktop-geometry="primitive: circle; radius: 0.25;"
         shadow="receive: false"
         position="-10.06309 -6.92725 7.29273"
         scale="1.85 1.85 1.85"
@@ -296,10 +296,11 @@
         id="arrow"
         class="clickable"
         look-at="#camera"
-        src="#img_direction-in"
+        src="#img_circle2"
         alpha-test=""
-        material="opacity: 0.75"
-        geometry="primitive: circle; radius: 0.9"
+        material="opacity: 0.8"
+        geometry="primitive: circle; radius: 1.5"
+        desktop-geometry="primitive: circle; radius: 1.3"
         shadow="receive: false"
         position="-5.2 -10 17.7"
         animation="property: position; to: -5.2 -9 17.7; dur: 3000; easing: easeOutQuad; dir: alternate; loop: true"

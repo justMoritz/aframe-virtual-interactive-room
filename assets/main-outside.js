@@ -26,179 +26,179 @@ var allCustomAnimationsHelper = {
   },
 
 
-  clothes_drawer: function( forceClose ){
-    var drawer   = document.getElementById("clothes-drawer");
-    var drawer_2 = document.getElementById("clothes-drawer-2");
-    var poi      = document.getElementById("clothes-drawer-poi");
+  // clothes_drawer: function( forceClose ){
+  //   var drawer   = document.getElementById("clothes-drawer");
+  //   var drawer_2 = document.getElementById("clothes-drawer-2");
+  //   var poi      = document.getElementById("clothes-drawer-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      drawer.setAttribute("animation", "property: position; to: -8.25 -8.824 4.917; delay: 100; dur: 500; easing: easeOutQuad; loop: false");
-      drawer_2.setAttribute("animation", "property: position; to: 0.15 0 -5.141; dur: 610; easing: easeOutQuad; loop: false");
-      drawer.classList.add('this--open');
-      poi.setAttribute("visible", "false");
+  //   // opening animation and dialogue activation
+  //   var _set = function(){
+  //     drawer.setAttribute("animation", "property: position; to: -8.25 -8.824 4.917; delay: 100; dur: 500; easing: easeOutQuad; loop: false");
+  //     drawer_2.setAttribute("animation", "property: position; to: 0.15 0 -5.141; dur: 610; easing: easeOutQuad; loop: false");
+  //     drawer.classList.add('this--open');
+  //     poi.setAttribute("visible", "false");
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 200);
-    };
+  //     setTimeout(function( ){
+  //       toggleDialoge( drawer.getAttribute('animation-click-handler') );
+  //     }, 200);
+  //   };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.setAttribute("animation", "property: position; to: -9.679 -8.824 4.917; dur: 500; easing: easeOutQuad; loop: false");
-      drawer_2.setAttribute("animation", "property: position; to: 0 0 -5.141; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.classList.remove('this--open');
-      poi.setAttribute("visible", "true");
+  //   // hides dialoge and resets animation
+  //   var _unset = function(){
+  //     drawer.setAttribute("animation", "property: position; to: -9.679 -8.824 4.917; dur: 500; easing: easeOutQuad; loop: false");
+  //     drawer_2.setAttribute("animation", "property: position; to: 0 0 -5.141; dur: 500; easing: easeOutQuad; loop: false");
+  //     drawer.classList.remove('this--open');
+  //     poi.setAttribute("visible", "true");
 
-    };
+  //   };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
-        _unset();
-      }
-    }
-  },
+  //   // if we received the request to force-close
+  //   if( forceClose ){
+  //     _unset();
+  //   }
+  //   // otherwise proceed with regular logic
+  //   else{
+  //     if( !drawer.classList.contains('this--open') ){
+  //       _set();
+  //     }else{
+  //       _unset();
+  //     }
+  //   }
+  // },
 
-  curtain: function( forceClose ){
-    var drawer   = document.getElementById("curtain");
-    var poi      = document.getElementById("curtain-poi");
+  // curtain: function( forceClose ){
+  //   var drawer   = document.getElementById("curtain");
+  //   var poi      = document.getElementById("curtain-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      // console.log('not open')
-      drawer.setAttribute("animation", "property: position; to: -5.834 0.178 0.529; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.setAttribute("animation__2", "property: scale; to: 1.66 1 1; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.classList.add('this--open');
-      poi.setAttribute("visible", "false");
+  //   // opening animation and dialogue activation
+  //   var _set = function(){
+  //     // console.log('not open')
+  //     drawer.setAttribute("animation", "property: position; to: -5.834 0.178 0.529; dur: 500; easing: easeOutQuad; loop: false");
+  //     drawer.setAttribute("animation__2", "property: scale; to: 1.66 1 1; dur: 500; easing: easeOutQuad; loop: false");
+  //     drawer.classList.add('this--open');
+  //     poi.setAttribute("visible", "false");
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 200);
-    };
+  //     setTimeout(function( ){
+  //       toggleDialoge( drawer.getAttribute('animation-click-handler') );
+  //     }, 200);
+  //   };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.setAttribute("animation", "property: position; to: -5.834 0.178 -1.029; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.setAttribute("animation__2", "property: scale; to: 1 1 1; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.classList.remove('this--open');
-      poi.setAttribute("visible", "true");
-    };
+  //   // hides dialoge and resets animation
+  //   var _unset = function(){
+  //     drawer.setAttribute("animation", "property: position; to: -5.834 0.178 -1.029; dur: 500; easing: easeOutQuad; loop: false");
+  //     drawer.setAttribute("animation__2", "property: scale; to: 1 1 1; dur: 500; easing: easeOutQuad; loop: false");
+  //     drawer.classList.remove('this--open');
+  //     poi.setAttribute("visible", "true");
+  //   };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
-        _unset();
-      }
-    }
-  },
+  //   // if we received the request to force-close
+  //   if( forceClose ){
+  //     _unset();
+  //   }
+  //   // otherwise proceed with regular logic
+  //   else{
+  //     if( !drawer.classList.contains('this--open') ){
+  //       _set();
+  //     }else{
+  //       _unset();
+  //     }
+  //   }
+  // },
 
-  headphones: function( forceClose ){
-    var drawer   = document.getElementById("headphones");
-    var poi      = document.getElementById("headphones-poi");
+  // headphones: function( forceClose ){
+  //   var drawer   = document.getElementById("headphones");
+  //   var poi      = document.getElementById("headphones-poi");
 
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      drawer.classList.add('this--open');
+  //   // opening animation and dialogue activation
+  //   var _set = function(){
+  //     drawer.classList.add('this--open');
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 20);
-    };
+  //     setTimeout(function( ){
+  //       toggleDialoge( drawer.getAttribute('animation-click-handler') );
+  //     }, 20);
+  //   };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.classList.remove('this--open');
-    };
+  //   // hides dialoge and resets animation
+  //   var _unset = function(){
+  //     drawer.classList.remove('this--open');
+  //   };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
-        _unset();
-      }
-    }
-  },
+  //   // if we received the request to force-close
+  //   if( forceClose ){
+  //     _unset();
+  //   }
+  //   // otherwise proceed with regular logic
+  //   else{
+  //     if( !drawer.classList.contains('this--open') ){
+  //       _set();
+  //     }else{
+  //       _unset();
+  //     }
+  //   }
+  // },
 
-  lighting: function( forceClose ){
-    var drawer   = document.getElementById("lighting");
+  // lighting: function( forceClose ){
+  //   var drawer   = document.getElementById("lighting");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      drawer.classList.add('this--open');
+  //   // opening animation and dialogue activation
+  //   var _set = function(){
+  //     drawer.classList.add('this--open');
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 20);
-    };
+  //     setTimeout(function( ){
+  //       toggleDialoge( drawer.getAttribute('animation-click-handler') );
+  //     }, 20);
+  //   };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.classList.remove('this--open');
-    };
+  //   // hides dialoge and resets animation
+  //   var _unset = function(){
+  //     drawer.classList.remove('this--open');
+  //   };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
-        _unset();
-      }
-    }
-  },
+  //   // if we received the request to force-close
+  //   if( forceClose ){
+  //     _unset();
+  //   }
+  //   // otherwise proceed with regular logic
+  //   else{
+  //     if( !drawer.classList.contains('this--open') ){
+  //       _set();
+  //     }else{
+  //       _unset();
+  //     }
+  //   }
+  // },
 
-  headboard: function( forceClose ){
-    var drawer   = document.getElementById("headboard");
-    var poi      = document.getElementById("headboard-poi");
+  // headboard: function( forceClose ){
+  //   var drawer   = document.getElementById("headboard");
+  //   var poi      = document.getElementById("headboard-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      drawer.classList.add('this--open');
+  //   // opening animation and dialogue activation
+  //   var _set = function(){
+  //     drawer.classList.add('this--open');
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 20);    };
+  //     setTimeout(function( ){
+  //       toggleDialoge( drawer.getAttribute('animation-click-handler') );
+  //     }, 20);    };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.classList.remove('this--open');
-    };
+  //   // hides dialoge and resets animation
+  //   var _unset = function(){
+  //     drawer.classList.remove('this--open');
+  //   };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
-        _unset();
-      }
-    }
-  },
+  //   // if we received the request to force-close
+  //   if( forceClose ){
+  //     _unset();
+  //   }
+  //   // otherwise proceed with regular logic
+  //   else{
+  //     if( !drawer.classList.contains('this--open') ){
+  //       _set();
+  //     }else{
+  //       _unset();
+  //     }
+  //   }
+  // },
 
 
 };

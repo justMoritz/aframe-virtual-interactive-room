@@ -31,90 +31,238 @@ var allCustomAnimationsHelper = {
       allCustomAnimationsHelper.headboard(true);
     if(input != 'wireless')
       allCustomAnimationsHelper.wireless(true);
+    if(input != 'curtain_outside')
+      allCustomAnimationsHelper.curtain_outside(true);
+    if(input != 'headphones_outside')
+      allCustomAnimationsHelper.headphones_outside(true);
+    if(input != 'headboard_outside')
+      allCustomAnimationsHelper.headboard_outside(true);
+    if(input != 'clothes_drawer_outside')
+      allCustomAnimationsHelper.clothes_drawer_outside(true);
+    if(input != 'lighting_outside')
+      allCustomAnimationsHelper.lighting_outside(true);
   },
 
 
+  clothes_drawer_outside: function( forceClose ){
+    var drawer   = document.getElementById("clothes-drawer");
+    var drawer_2 = document.getElementById("clothes-drawer-2");
+    var poi      = document.getElementById("clothes-drawer-poi");
 
-  // desk_drawer_old: function( forceClose ){
-  //   var drawer   = document.getElementById("desk-drawer");
-  //   var dialogue = document.getElementById("desk-drawer-dialog");
-  //   var poi      = document.getElementById("desk-drawer-poi");
-  //   var internal = document.querySelectorAll(".desk-drawer-dialog-internal");
+    if(drawer){
 
-  //   // opening animation and dialogue activation
-  //   var _set = function(){
-  //     drawer.setAttribute("animation", "property: position; to: 6 -4.99191 0.125; dur: 500; easing: easeOutQuad; loop: false");
-  //     drawer.classList.add('this--open');
-  //     dialogue.setAttribute("visible", "true");
-  //     dialogue.setAttribute("animation", "property: material.opacity; from: 0; to: 0.85; dur: 350;");
-  //     poi.setAttribute("visible", "false");
+      // opening animation and dialogue activation
+      var _set = function(){
+        drawer.setAttribute("animation", "property: position; to: -8.25 -8.824 4.917; delay: 100; dur: 500; easing: easeOutQuad; loop: false");
+        drawer_2.setAttribute("animation", "property: position; to: 0.15 0 -5.141; dur: 610; easing: easeOutQuad; loop: false");
+        drawer.classList.add('this--open');
+        poi.setAttribute("visible", "false");
 
-  //     setTimeout(function( ){
-  //       toggleDialoge( drawer.getAttribute('dialog-more-button') );
-  //     }, 200);
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 200);
+      };
 
-  //     for(var i=0; i<internal.length; i++ )
-  //       internal[i].classList.add('clickable')
-  //   };
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.setAttribute("animation", "property: position; to: -9.679 -8.824 4.917; dur: 500; easing: easeOutQuad; loop: false");
+        drawer_2.setAttribute("animation", "property: position; to: 0 0 -5.141; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.classList.remove('this--open');
+        poi.setAttribute("visible", "true");
 
-  //   // hides dialoge and resets animation
-  //   var _unset = function(){
-  //     drawer.setAttribute("animation", "property: position; to: 8.77143 -4.99191 0.125; dur: 500; easing: easeOutQuad; loop: false");
-  //     drawer.classList.remove('this--open');
-  //     dialogue.setAttribute("visible", "false");
-  //     dialogue.setAttribute("animation", "property: material.opacity; from: 1; to: 0; dur: 350;");
-  //     poi.setAttribute("visible", "true");
+      };
 
-  //     for(var i=0; i<internal.length; i++ )
-  //       internal[i].classList.remove('clickable');
-  //   };
+      // if we received the request to force-close
+      if( forceClose ){
+        _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
+      }
+    }
+  },
 
-  //   // if we received the request to force-close
-  //   if( forceClose ){
-  //     _unset();
-  //   }
-  //   // otherwise proceed with regular logic
-  //   else{
-  //     if( !drawer.classList.contains('this--open') ){
-  //       _set();
-  //     }else{
-  //       _unset();
-  //     }
-  //   }
-  // },
+  curtain_outside: function( forceClose ){
+    var drawer   = document.getElementById("curtain_outside");
+    var poi      = document.getElementById("curtain_outside-poi");
+
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        // console.log('not open')
+        drawer.setAttribute("animation", "property: position; to: -5.834 0.178 0.529; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.setAttribute("animation__2", "property: scale; to: 1.66 1 1; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.classList.add('this--open');
+        poi.setAttribute("visible", "false");
+
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 200);
+      };
+
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.setAttribute("animation", "property: position; to: -5.834 0.178 -1.029; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.setAttribute("animation__2", "property: scale; to: 1 1 1; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.classList.remove('this--open');
+        poi.setAttribute("visible", "true");
+      };
+
+      // if we received the request to force-close
+      if( forceClose ){
+        _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
+      }
+    }
+  },
+
+  headphones_outside: function( forceClose ){
+    var drawer   = document.getElementById("headphones");
+    var poi      = document.getElementById("headphones-poi");
+
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        drawer.classList.add('this--open');
+
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 20);
+      };
+
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.classList.remove('this--open');
+      };
+
+      // if we received the request to force-close
+      if( forceClose ){
+        _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
+      }
+    }
+  },
+
+  lighting_outside: function( forceClose ){
+    var drawer   = document.getElementById("lighting");
+
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        drawer.classList.add('this--open');
+
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 20);
+      };
+
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.classList.remove('this--open');
+      };
+
+      // if we received the request to force-close
+      if( forceClose ){
+        _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
+      }
+    }
+  },
+
+  headboard_outside: function( forceClose ){
+    var drawer   = document.getElementById("headboard_outside");
+    var poi      = document.getElementById("headboard_outside-poi");
+
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        drawer.classList.add('this--open');
+
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 20);    };
+
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.classList.remove('this--open');
+      };
+
+      // if we received the request to force-close
+      if( forceClose ){
+        _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
+      }
+    }
+  },
+
 
   desk_drawer: function( forceClose ){
     var drawer   = document.getElementById("desk-drawer");
     var poi      = document.getElementById("desk-drawer-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      drawer.setAttribute("animation", "property: position; to: 6 -4.99191 0.125; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.classList.add('this--open');
-      poi.setAttribute("visible", "false");
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        drawer.setAttribute("animation", "property: position; to: 6 -4.99191 0.125; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.classList.add('this--open');
+        poi.setAttribute("visible", "false");
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 200);
-    };
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 200);
+      };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.setAttribute("animation", "property: position; to: 8.77143 -4.99191 0.125; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.classList.remove('this--open');
-      poi.setAttribute("visible", "true");
-    };
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.setAttribute("animation", "property: position; to: 8.77143 -4.99191 0.125; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.classList.remove('this--open');
+        poi.setAttribute("visible", "true");
+      };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
+      // if we received the request to force-close
+      if( forceClose ){
         _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
       }
     }
   },
@@ -123,34 +271,36 @@ var allCustomAnimationsHelper = {
     var drawer   = document.getElementById("cooler-drawer");
     var poi      = document.getElementById("cooler-drawer-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      drawer.setAttribute("animation", "property: position; to: 7 -5.363 8.117; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.classList.add('this--open');
-      poi.setAttribute("visible", "false");
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        drawer.setAttribute("animation", "property: position; to: 7 -5.363 8.117; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.classList.add('this--open');
+        poi.setAttribute("visible", "false");
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 200);
-    };
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 200);
+      };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.setAttribute("animation", "property: position; to: 8.727 -5.363 8.117; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.classList.remove('this--open');
-      poi.setAttribute("visible", "true");
-    };
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.setAttribute("animation", "property: position; to: 8.727 -5.363 8.117; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.classList.remove('this--open');
+        poi.setAttribute("visible", "true");
+      };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
+      // if we received the request to force-close
+      if( forceClose ){
         _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
       }
     }
   },
@@ -159,37 +309,39 @@ var allCustomAnimationsHelper = {
     var drawer   = document.getElementById("curtain");
     var poi      = document.getElementById("curtain-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      // console.log('not open')
-      drawer.setAttribute("animation", "property: position; to: 1 0.463 11.643; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.setAttribute("animation__2", "property: scale; to: 1.33 1 1; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.classList.add('this--open');
-      poi.setAttribute("visible", "false");
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        // console.log('not open')
+        drawer.setAttribute("animation", "property: position; to: 1 0.463 11.643; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.setAttribute("animation__2", "property: scale; to: 1.33 1 1; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.classList.add('this--open');
+        poi.setAttribute("visible", "false");
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 200);
-    };
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 200);
+      };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.setAttribute("animation", "property: position; to: 3.646 0.463 11.643; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.setAttribute("animation__2", "property: scale; to: 1 1 1; dur: 500; easing: easeOutQuad; loop: false");
-      drawer.classList.remove('this--open');
-      poi.setAttribute("visible", "true");
-    };
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.setAttribute("animation", "property: position; to: 3.646 0.463 11.643; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.setAttribute("animation__2", "property: scale; to: 1 1 1; dur: 500; easing: easeOutQuad; loop: false");
+        drawer.classList.remove('this--open');
+        poi.setAttribute("visible", "true");
+      };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
+      // if we received the request to force-close
+      if( forceClose ){
         _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
       }
     }
   },
@@ -198,31 +350,33 @@ var allCustomAnimationsHelper = {
     var drawer   = document.getElementById("headphones");
     var poi      = document.getElementById("headphones-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      // console.log('not open')
-      drawer.classList.add('this--open');
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        // console.log('not open')
+        drawer.classList.add('this--open');
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 20);
-    };
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 20);
+      };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.classList.remove('this--open');
-    };
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.classList.remove('this--open');
+      };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
+      // if we received the request to force-close
+      if( forceClose ){
         _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
       }
     }
   },
@@ -231,30 +385,32 @@ var allCustomAnimationsHelper = {
     var drawer   = document.getElementById("headboard");
     var poi      = document.getElementById("headboard-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      drawer.classList.add('this--open');
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        drawer.classList.add('this--open');
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 20);
-    };
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 20);
+      };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.classList.remove('this--open');
-    };
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.classList.remove('this--open');
+      };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
+      // if we received the request to force-close
+      if( forceClose ){
         _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
       }
     }
   },
@@ -263,31 +419,33 @@ var allCustomAnimationsHelper = {
     var drawer   = document.getElementById("iphone");
     var poi      = document.getElementById("iphone-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      drawer.classList.add('this--open');
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        drawer.classList.add('this--open');
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 20);
-    };
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 20);
+      };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.classList.remove('this--open');
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.classList.remove('this--open');
 
-    };
+      };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
+      // if we received the request to force-close
+      if( forceClose ){
         _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
       }
     }
   },
@@ -296,31 +454,33 @@ var allCustomAnimationsHelper = {
     var drawer   = document.getElementById("wireless");
     var poi      = document.getElementById("wireless-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      drawer.classList.add('this--open');
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        drawer.classList.add('this--open');
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 20);
-    };
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 20);
+      };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.classList.remove('this--open');
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.classList.remove('this--open');
 
-    };
+      };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
+      // if we received the request to force-close
+      if( forceClose ){
         _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
       }
     }
   },
@@ -329,31 +489,33 @@ var allCustomAnimationsHelper = {
     var drawer   = document.getElementById("ipad");
     var poi      = document.getElementById("ipad-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      drawer.classList.add('this--open');
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        drawer.classList.add('this--open');
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 20);
-    };
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 20);
+      };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.classList.remove('this--open');
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.classList.remove('this--open');
 
-    };
+      };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
+      // if we received the request to force-close
+      if( forceClose ){
         _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
       }
     }
   },
@@ -363,40 +525,42 @@ var allCustomAnimationsHelper = {
     var drawer_2 = document.getElementById("television-appletv");
     var poi      = document.getElementById("television-poi");
 
-    // opening animation and dialogue activation
-    var _set = function(){
-      // console.log('not open')
-      drawer.classList.add('this--open');
-      drawer.setAttribute("animation", "property: position; to: 10.265 2.459 -0.12; dur: 500; easing: easeOutQuad; loop: false");
-      drawer_2.setAttribute("animation", "property: position; to: 0 -5 1; dur: 500; easing: easeOutQuad; loop: false");
-      drawer_2.setAttribute("animation__2", "property: material.opacity; from: 0; to: 0.66; dur: 350;");
-      poi.setAttribute("visible", "false");
+    if(drawer){
+      // opening animation and dialogue activation
+      var _set = function(){
+        // console.log('not open')
+        drawer.classList.add('this--open');
+        drawer.setAttribute("animation", "property: position; to: 10.265 2.459 -0.12; dur: 500; easing: easeOutQuad; loop: false");
+        drawer_2.setAttribute("animation", "property: position; to: 0 -5 1; dur: 500; easing: easeOutQuad; loop: false");
+        drawer_2.setAttribute("animation__2", "property: material.opacity; from: 0; to: 0.66; dur: 350;");
+        poi.setAttribute("visible", "false");
 
-      setTimeout(function( ){
-        toggleDialoge( drawer.getAttribute('animation-click-handler') );
-      }, 200);
+        setTimeout(function( ){
+          toggleDialoge( drawer.getAttribute('animation-click-handler') );
+        }, 200);
 
-    };
+      };
 
-    // hides dialoge and resets animation
-    var _unset = function(){
-      drawer.classList.remove('this--open');
-      drawer.setAttribute("animation", "property: position; to: 11.16747 1.936 0.12; dur: 500; easing: easeOutQuad; loop: false");
-      drawer_2.setAttribute("animation", "property: position; to: 0 -3 -2; dur: 500; easing: easeOutQuad; loop: false");
-      drawer_2.setAttribute("animation__2", "property: material.opacity; from: 0.66; to: 0; dur: 350;");
-      poi.setAttribute("visible", "true");
-    };
+      // hides dialoge and resets animation
+      var _unset = function(){
+        drawer.classList.remove('this--open');
+        drawer.setAttribute("animation", "property: position; to: 11.16747 1.936 0.12; dur: 500; easing: easeOutQuad; loop: false");
+        drawer_2.setAttribute("animation", "property: position; to: 0 -3 -2; dur: 500; easing: easeOutQuad; loop: false");
+        drawer_2.setAttribute("animation__2", "property: material.opacity; from: 0.66; to: 0; dur: 350;");
+        poi.setAttribute("visible", "true");
+      };
 
-    // if we received the request to force-close
-    if( forceClose ){
-      _unset();
-    }
-    // otherwise proceed with regular logic
-    else{
-      if( !drawer.classList.contains('this--open') ){
-        _set();
-      }else{
+      // if we received the request to force-close
+      if( forceClose ){
         _unset();
+      }
+      // otherwise proceed with regular logic
+      else{
+        if( !drawer.classList.contains('this--open') ){
+          _set();
+        }else{
+          _unset();
+        }
       }
     }
   },
@@ -465,14 +629,35 @@ AFRAME.registerComponent('animation-click-handler', {
 
 
 
-// No longer used, left for reference
-// AFRAME.registerComponent('dialog-more-button', {
-//   init: function () {
-//     this.el.addEventListener('mousedown', function () {
-//       toggleDialoge( this.getAttribute('dialog-more-button') );
-//     });
-//   }
-// });
+
+/**
+ * Allows for different geometry (ie POI size) on Desktop
+ */
+var _handle_desktop_geometry = function( passed_el ){
+  // caches the mobile and desktop geometroies
+  var desktop_geometry = passed_el.getAttribute('desktop-geometry');
+  var regular_geometry = passed_el.getAttribute('geometry');
+
+  // gets window width
+  var window_width = window.innerWidth
+  || document.documentElement.clientWidth
+  || document.body.clientWidth;
+
+  // if a desktop style is detected, apply the desktop geometry
+  if( window_width >= 768 ){
+    passed_el.setAttribute('geometry', desktop_geometry);
+  }else{
+    passed_el.setAttribute('geometry', regular_geometry);
+  }
+};
+
+
+// desktop stylez
+AFRAME.registerComponent('desktop-geometry', {
+  init: function () {
+    _handle_desktop_geometry( this.el );
+  }
+});
 
 
 

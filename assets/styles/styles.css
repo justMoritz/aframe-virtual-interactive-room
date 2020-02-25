@@ -46,6 +46,10 @@
     max-height: 80vh;
     box-shadow: 10px 10px 55px rgba(0, 0, 0, 0.15);
     animation: float 6s ease-in-out infinite; }
+    @media (max-width: 768px) {
+      .dialogue__text {
+        width: 250px;
+        max-width: 250px; } }
   .dialogue__inner {
     padding: 8%;
     font-size: 16px;

@@ -35,6 +35,9 @@
       <a-assets>
         <img id="img_sky" src="src/Villas-on-Rio_B6_360_2.jpg">
         <img id="img_poi" src="src/poi-min.png">
+        <img id="img_circle0" src="src/circle0.png">
+        <img id="img_circle1" src="src/circle1.png">
+        <img id="img_circle2" src="src/circle2.png">
         <img id="img_headphones" src="src/headphones-min.png">
         <img id="img_lighting" src="src/lighting.png">
         <img id="img_direction-in" src="src/direction-in-min.png">
@@ -100,7 +103,7 @@
           animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
           animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
         >
-          <a-image id="clothes-drawer-poi" geometry="primitive: circle; radius: 0.7" look-at="#camera" src="#img_poi" animation-click-handler="clothes_drawer" alpha-test position="4.885 3.225 2.313" class="clickable"
+          <a-image id="clothes-drawer-poi" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.33" look-at="#camera" src="#img_circle0" animation-click-handler="clothes_drawer_outside" alpha-test position="4.885 3.225 2.313" class="clickable"
           animation="property: position; to: 4.885 6 2.313; dur: 2800; easing: easeOutQuad; dir: alternate; loop: 2"
           animation__loop="property: position; to: 4.885 4 2.313; dur: 4050; easing: easeOutQuad; delay: 6000; dir: alternate; loop: true"
           ></a-image>
@@ -110,7 +113,7 @@
 
       <!-- Curtain functinoality set in main.js through the animation-click-handler attirbute -->
       <a-box
-        id="curtain"
+        id="curtain_outside"
         shadow="cast: false"
         sshadow-material=""
         position="-5.834 0.178 -1.029"
@@ -121,23 +124,24 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image class="clickable" id="curtain-poi" src="#img_poi" geometry="primitive: circle; radius: 0.5" animation-click-handler="curtain" alpha-test position="-1.12 -0.5 0.5" class="not-clickable" animation="property: position; to: -1.12 -0.6 0.5; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image class="clickable" id="curtain_outside-poi" src="#img_circle0" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.25" animation-click-handler="curtain_outside" alpha-test position="-1.12 -0.5 0.5" class="not-clickable" animation="property: position; to: -1.12 -0.6 0.5; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
       </a-box>
 
 
       <!-- Headboard handlers -->
       <a-image
-        animation-click-handler="headboard"
-        id="headboard"
+        animation-click-handler="headboard_outside"
+        id="headboard_outside"
         class="clickable custom-animation-object"
         shadow="cast: false"
         sshadow-material=""
         position="-22 6.861 17.717"
-        geometry="primitive: circle; radius: 1.3"
+        geometry="primitive: circle; radius: 1.4"
+        desktop-geometry="primitive: circle; radius: 0.8"
         material="opacity: 0.95"
         rotation="0 -90 0"
-        scale="1.5 1.5 1.5"
-        src="#img_poi"
+        scale="1.05 1.05 1.05"
+        src="#img_circle0"
         animation="property: position; to: -22 5.861 17.717; dur: 2250; easing: easeOutQuad; dir: alternate; loop: true"
         animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
@@ -149,15 +153,16 @@
 
       <!-- Headphones -->
       <a-image
-        animation-click-handler="headphones"
+        animation-click-handler="headphones_outside"
         id="headphones"
         class="clickable"
         look-at="#camera"
         animation="property: position; to: -10.75 -5.0 9.5; dur: 4000; easing: easeOutQuad; dir: alternate; loop: true"
-        src="#img_headphones"
+        src="#img_circle0"
         alpha-test=""
         material="opacity: 0.75"
-        geometry="primitive: circle; radius: 0.9"
+        geometry="primitive: circle; radius: 0.5"
+        desktop-geometry="primitive: circle; radius: 0.3"
         shadow="receive: false"
         position="-10.75 -5.5 9.5"
         scale="1.75 1.75 1.75"
@@ -166,21 +171,21 @@
         animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
-        <!-- <a-image id="headphones-poi" look-at="#camera" src="#img_poi"  animation-click-handler="headphones" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
       </a-image>
 
 
 
       <!-- lighting -->
       <a-image
-        animation-click-handler="lighting"
+        animation-click-handler="lighting_outside"
         id="lighting"
         class="clickable"
         look-at="#camera"
-        src="#img_lighting"
+        src="#img_circle0"
         alpha-test=""
         material="opacity: 0.75"
-        geometry="width: 1.5; height: 1.5"
+        geometry="primitive: circle; radius: 0.56"
+        desktop-geometry="primitive: circle; radius: 0.4"
         shadow="receive: false"
         position="-20.75 7.8 5"
         animation="property: position; to: -20.75 9 5; dur: 3650; easing: easeOutQuad; dir: alternate; loop: true"
@@ -200,10 +205,11 @@
         id="arrow"
         class="clickable"
         look-at="#camera"
-        src="#img_direction-in"
+        src="#img_circle2"
         alpha-test=""
         material="opacity: 0.75"
-        geometry="primitive: circle; radius: 0.9"
+        geometry="primitive: circle; radius: 1.2"
+        desktop-geometry="primitive: circle; radius: 0.9"
         shadow="receive: false"
         position="-14 -5.5 4"
         animation="property: position; to: -14 -5.1 4; dur: 3000; easing: easeOutQuad; dir: alternate; loop: true"
@@ -213,7 +219,6 @@
         animation__mousedown_scale="property: scale; to: 1.1 1.1 1.1; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
-        <!-- <a-image id="headphones-poi" look-at="#camera" src="#img_poi"  animation-click-handler="headphones" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
       </a-image>
 
 
@@ -247,29 +252,29 @@
     <!-- Loads custom scripts for events and animations -->
     <script>
       var dialogueInformation = {
-        clothes_drawer:{
+        clothes_drawer_outside:{
           title: 'Clothing Storage',
           content: 'Generous Drawer/Storage Space Built into your Pod',
         },
-        curtain:{
+        curtain_outside:{
           title: 'Designer Privacy Curtain',
           content: 'Curtain Curated by Interior Designer for Pod Privacy on a Seamless Track with Heavy Fabric to Cut out Noise.',
         },
-        headphones:{
+        headphones_outside:{
           title: 'Airport / Bluetooth (Private)',
           content: '',
         },
-        headboard:{
+        headboard_outside:{
           title: 'Designer Cushioned Headboard',
           content: 'Floor-to-Ceiling, Plush, Leather Designer Headboards.',
         },
-        lighting:{
+        lighting_outside:{
           title: 'Bluetooth Lighting Control',
           content: 'Control Lighting and Even Adjust the Mood with Color Lights Independently in Each Pod.',
         },
       }
     </script>
-    <script src="assets/main-outside.js?v=<?=$globalVersion?>"></script>
+    <script src="assets/main.js?v=<?=$globalVersion?>"></script>
 
   </body>
 </html>
