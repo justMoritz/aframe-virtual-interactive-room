@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.1.0';
+  $globalVersion = '1.2.0';
 
 ?>
 
@@ -34,22 +34,9 @@
       <!-- All Images -->
       <a-assets>
         <img id="img_sky" src="src/Villas-on-Rio_B6_360_2.jpg">
-        <img id="img_poi" src="src/poi-min.png">
         <img id="img_circle0" src="src/circle0.png">
         <img id="img_circle1" src="src/circle1.png">
         <img id="img_circle2" src="src/circle2.png">
-        <img id="img_headphones" src="src/headphones-min.png">
-        <img id="img_lighting" src="src/lighting.png">
-        <img id="img_direction-in" src="src/direction-in-min.png">
-        <img id="img_poi" src="src/poi-min.png">
-        <img id="img_button" src="src/button-min.png">
-        <img id="img_close" src="src/close-min.png">
-        <img id="img_clothes-drawer" src="src/clothes-drawer-min.png">
-        <img id="img_headphones-d" src="src/headphones-d-min.png">
-        <img id="img_curtain" src="src/curtain-min.png">
-        <img id="img_headboard" src="src/headboard-min.png">
-        <img id="transparent" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=">
-        <img id="transpImage" crossorigin="anonymous" src="http://ekladata.com/hXTGfWnZm170W274zDRObDlqOlc.png">
       </a-assets>
 
 

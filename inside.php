@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.1.0';
+  $globalVersion = '1.2.0';
 
 ?>
 
@@ -34,29 +34,10 @@
       <!-- All Images -->
       <a-assets>
         <img id="img_sky" src="src/Villas-on-Rio_B6_360_1-2.jpg">
-        <img id="img_poi" src="src/poi-min.png">
         <img id="img_circle0" src="src/circle0.png">
         <img id="img_circle1" src="src/circle1.png">
         <img id="img_circle2" src="src/circle2.png">
-        <img id="img_iphone" src="src/iphone-min.png">
-        <img id="img_wireless" src="src/wireless.png">
-        <img id="img_ipad" src="src/ipad-min.png">
-        <img id="img_headphones" src="src/headphones-min.png">
-        <img id="img_direction-in" src="src/direction-in-min.png">
         <img id="img_appletv" src="src/appletv-min.png">
-        <img id="img_poi" src="src/poi-min.png">
-        <img id="img_button" src="src/button-min.png">
-        <img id="img_close" src="src/close-min.png">
-        <img id="img_desk-drawer" src="src/desk-drawer-min.png">
-        <img id="img_cooler-drawer" src="src/cooler-drawer-min.png">
-        <img id="img_iphone-d" src="src/iphone-d-min.png">
-        <img id="img_ipad-d" src="src/ipad-d-min.png">
-        <img id="img_headphones-d" src="src/headphones-d-min.png">
-        <img id="img_curtain" src="src/curtain-min.png">
-        <img id="img_television" src="src/television-min.png">
-        <img id="img_headboard" src="src/headboard-min.png">
-        <img id="transparent" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=">
-        <img id="transpImage" crossorigin="anonymous" src="http://ekladata.com/hXTGfWnZm170W274zDRObDlqOlc.png">
       </a-assets>
 
 
@@ -321,8 +302,8 @@
     <!-- External HTML overlay, hidden by default, will show over the Aframe canvas -->
     <div class="dialogue">
       <div class="dialogue__closer"></div>
-      <div class="dialogue__closerX"></div>
       <div class="dialogue__text">
+        <div class="dialogue__closerX"></div>
         <div class="dialogue__wrapper">
           <div class="dialogue__inner">
             <h2 class="dialogue__headline">Headline</h2>
