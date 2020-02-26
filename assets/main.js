@@ -94,7 +94,6 @@ var allCustomAnimationsHelper = {
     if(drawer){
       // opening animation and dialogue activation
       var _set = function(){
-        // console.log('not open')
         drawer.setAttribute("animation", "property: position; to: -5.834 0.178 0.529; dur: 500; easing: easeOutQuad; loop: false");
         drawer.setAttribute("animation__2", "property: scale; to: 1.66 1 1; dur: 500; easing: easeOutQuad; loop: false");
         drawer.classList.add('this--open');
@@ -312,7 +311,6 @@ var allCustomAnimationsHelper = {
     if(drawer){
       // opening animation and dialogue activation
       var _set = function(){
-        // console.log('not open')
         drawer.setAttribute("animation", "property: position; to: 1 0.463 11.643; dur: 500; easing: easeOutQuad; loop: false");
         drawer.setAttribute("animation__2", "property: scale; to: 1.33 1 1; dur: 500; easing: easeOutQuad; loop: false");
         drawer.classList.add('this--open');
@@ -353,7 +351,6 @@ var allCustomAnimationsHelper = {
     if(drawer){
       // opening animation and dialogue activation
       var _set = function(){
-        // console.log('not open')
         drawer.classList.add('this--open');
 
         setTimeout(function( ){
@@ -528,7 +525,6 @@ var allCustomAnimationsHelper = {
     if(drawer){
       // opening animation and dialogue activation
       var _set = function(){
-        // console.log('not open')
         drawer.classList.add('this--open');
         drawer.setAttribute("animation", "property: position; to: 10.265 2.459 -0.12; dur: 500; easing: easeOutQuad; loop: false");
         drawer_2.setAttribute("animation", "property: position; to: 0 -5 1; dur: 500; easing: easeOutQuad; loop: false");
@@ -577,13 +573,7 @@ var allCustomAnimationsHelper = {
 AFRAME.registerComponent('framechange-click-handler', {
   init: function () {
 
-    this.el.addEventListener('mouseenter', function () {
-      console.log('switch rooms!');
-    }); // end addEventListener mouseenter
-
-
     this.el.addEventListener('mousedown', function () {
-      console.log('click');
       var fileTraget = this.getAttribute('framechange-click-handler')
       var camera            = document.getElementById('camera');
       var frameBlendOverlay = document.querySelector('.frame-blend-overlay');
@@ -610,13 +600,12 @@ AFRAME.registerComponent('framechange-click-handler', {
 AFRAME.registerComponent('animation-click-handler', {
   init: function () {
 
-    this.el.addEventListener('mouseenter', function () {
-      console.log('droidbishop');
-    }); // end addEventListener mouseenter
+    // this.el.addEventListener('mouseenter', function () {
+      // not used
+    // }); // end addEventListener mouseenter
 
 
     this.el.addEventListener('mousedown', function () {
-      console.log('click');
 
       // calls the animation with the name that was passed from the
       allCustomAnimationsHelper[ this.getAttribute('animation-click-handler') ]();

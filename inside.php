@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.2.4';
+  $globalVersion = '1.2.5';
 
 ?>
 
@@ -34,11 +34,11 @@
 
       <!-- All Images -->
       <a-assets>
-        <img id="img_sky" src="src/Villas-on-Rio_B6_360_1-2.jpg">
-        <img id="img_circle0" src="src/circle0.png">
-        <img id="img_circle1" src="src/circle1.png">
-        <img id="img_circle2" src="src/circle2.png">
-        <img id="img_appletv" src="src/appletv-min.png">
+        <img id="img_sky" src="src/Villas-on-Rio_B6_360_1-2.jpg?v=<?=$globalVersion?>">
+        <img id="img_circle0" src="src/circle0.png?v=<?=$globalVersion?>">
+        <img id="img_circle1" src="src/circle1.png?v=<?=$globalVersion?>">
+        <img id="img_circle2" src="src/circle2.png?v=<?=$globalVersion?>">
+        <img id="img_appletv" src="src/appletv-min.png?v=<?=$globalVersion?>">
       </a-assets>
 
 
