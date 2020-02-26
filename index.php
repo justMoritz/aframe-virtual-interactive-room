@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.2.3';
+  $globalVersion = '1.2.4';
 
 ?>
 
@@ -9,7 +9,7 @@
   <head>
     <title>Villas on Rio Virtual Pod Tour 2</title>
     <meta name="description" content="Mouse Click Example - A-Frame">
-    <meta charset="ISO-8859-1">
+    <meta charset="utf-8">
 
     <!-- Loading Aframe and Dependencies -->
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
