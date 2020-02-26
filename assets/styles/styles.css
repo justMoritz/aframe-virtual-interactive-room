@@ -1,16 +1,20 @@
 .dialogue {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
+  width: 0;
+  height: 0;
+  left: -9999999px;
   top: 0;
+  display: none;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.25s; }
   .dialogue.this--visible {
     display: block;
     pointer-events: all;
-    opacity: 1; }
+    opacity: 1;
+    left: 0;
+    width: 100%;
+    height: 100%; }
   .dialogue__closer {
     position: absolute;
     width: 100%;
@@ -29,21 +33,15 @@
     z-index: 99999999;
     background-size: contain;
     background-repeat: no-repeat; }
-  .dialogue__wrapper {
-    background: rgba(255, 255, 255, 0.75);
-    width: 600px;
-    margin: 0 auto;
-    box-shadow: 10px 10px 55px rgba(0, 0, 0, 0.15);
-    animation: floatshadow 6s ease-in-out infinite;
-    pointer-events: all; }
+    @media (max-width: 768px) {
+      .dialogue__closerX {
+        right: 0; } }
   .dialogue__text {
     pointer-events: none;
     padding-top: 50px;
     padding-bottom: 100px;
     display: block;
     position: absolute;
-    align-items: center;
-    justify-content: center;
     text-align: center;
     left: 50%;
     top: 50%;
@@ -56,9 +54,20 @@
     animation: float 6s ease-in-out infinite; }
     @media (max-width: 768px) {
       .dialogue__text {
+        width: 300px; } }
+  .dialogue__wrapper {
+    background: rgba(255, 255, 255, 0.75);
+    width: 600px;
+    margin: 0 auto;
+    box-shadow: 10px 10px 55px rgba(0, 0, 0, 0.15);
+    animation: floatshadow 6s ease-in-out infinite; }
+    @media (max-width: 768px) {
+      .dialogue__wrapper {
         width: 250px; } }
+    .dialogue__wrapper.this--pointereventable {
+      pointer-events: all; }
   .dialogue__inner {
-    padding: 8%;
+    padding: 30px;
     font-size: 16px;
     font-weight: 300;
     font-family: 'Montserrat', sans-serif;

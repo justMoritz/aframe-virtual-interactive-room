@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.2.0';
+  $globalVersion = '1.2.1';
 
 ?>
 
@@ -221,8 +221,8 @@
     <!-- External HTML overlay, hidden by default, will show over the Aframe canvas -->
     <div class="dialogue">
       <div class="dialogue__closer"></div>
-      <div class="dialogue__closerX"></div>
       <div class="dialogue__text">
+        <div class="dialogue__closerX"></div>
         <div class="dialogue__wrapper">
           <div class="dialogue__inner">
             <h2 class="dialogue__headline">Headline</h2>

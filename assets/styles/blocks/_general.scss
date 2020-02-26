@@ -3,19 +3,22 @@
 }
 .dialogue{
   position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0; top: 0;
-  // display: none;
+  width: 0;
+  height: 0;
+  left: -9999999px;
+  top: 0;
+  display: none;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.25s;
-
 
   &.this--visible{
     display: block;
     pointer-events: all;
     opacity: 1;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   &__closer{
@@ -37,6 +40,32 @@
     z-index: 99999999;
     background-size: contain;
     background-repeat: no-repeat;
+
+    @media(max-width: 768px){
+      right: 0;
+    }
+  }
+
+  &__text{
+    pointer-events: none;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    display: block;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    overflow: scroll;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    width: 768px;
+    max-height: 80vh;
+    animation: float 6s ease-in-out infinite;
+
+    @media(max-width: 768px){
+      width: 300px;
+    }
   }
 
   &__wrapper{
@@ -45,38 +74,19 @@
     margin: 0 auto;
     box-shadow: 10px 10px 55px rgba(0,0,0,0.15);
     animation: floatshadow 6s ease-in-out infinite;
-    pointer-events: all;
-  }
-
-
-  &__text{
-    pointer-events: none;
-    padding-top: 50px;
-    padding-bottom: 100px;
-    display: block;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    left: 50%;
-    top: 50%;
-    overflow: scroll;
-    transform: translate(-50%, -50%);
-    width: auto;
-    height: auto;
-    // max-width: 80vw;
-    width: 768px;
-    max-height: 80vh;
-    animation: float 6s ease-in-out infinite;
 
     @media(max-width: 768px){
       width: 250px;
-      // max-width: 250px;
+    }
+
+    &.this--pointereventable{
+      pointer-events: all;
     }
   }
 
+
   &__inner{
-    padding: 8%;
+    padding: 30px;
     font-size: 16px;
     font-weight: 300;
     font-family: 'Montserrat', sans-serif;

@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.2.0';
+  $globalVersion = '1.2.1';
 
 ?>
 
@@ -115,7 +115,7 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image class="clickable" id="curtain-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.57" desktop-geometry="primitive: circle; radius: 0.325" animation-click-handler="curtain" alpha-test position="-2.55 -0.40 -1" class="not-clickable" animation="property: position; to: -2.55 -0.60 -1; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image class="clickable" id="curtain-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.66" desktop-geometry="primitive: circle; radius: 0.325" animation-click-handler="curtain" alpha-test position="-2.55 -0.40 -1" class="not-clickable" animation="property: position; to: -2.55 -0.60 -1; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
       </a-box>
       <!-- This is the info dialog for the curtain, with close and show more buttons -->
       <a-image src="#img_circle0" id="curtain-dialog" look-at="#camera" shadow="cast: false; receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="0 1.400 6.560" visible="false" scale="0.8 0.8 0.8">
@@ -187,8 +187,8 @@
         geometry="primitive: circle; radius: 0.45"
         desktop-geometry="primitive: circle; radius: 0.3"
         shadow="receive: false"
-        position="4.337 0.16674 -3.01447"
-        animation="property: position; to: 4.337 0.32674 -3.01447; dur: 2000; easing: easeOutQuad; dir: alternate; loop: true"
+        position="4.337 0.16674 -3.6447"
+        animation="property: position; to: 4.337 0.32674 -3.6447; dur: 2000; easing: easeOutQuad; dir: alternate; loop: true"
         animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
         animation__mousedown_scale="property: scale; to: 1.1 1.1 1.1; startEvents: mouseenter; dur: 500"
