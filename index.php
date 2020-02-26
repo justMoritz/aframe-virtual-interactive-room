@@ -80,8 +80,9 @@
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
         <a-box
+          animation-click-handler="clothes_drawer_outside"
           id="clothes-drawer-2"
-          class="not-clickable custom-animation-object clothes_drawer_click_class"
+          class="clickable custom-animation-object clothes_drawer_click_class"
           shadow="cast: false"
           sshadow-material=""
           position="0 0 -5.141"
@@ -90,7 +91,7 @@
           animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
           animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
         >
-          <a-image id="clothes-drawer-poi" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.33" look-at="#camera" src="#img_circle0" animation-click-handler="clothes_drawer_outside" alpha-test position="4.885 3.225 2.313" class="clickable"
+          <a-image id="clothes-drawer-poi" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.33" look-at="#camera" src="#img_circle0" alpha-test position="4.885 3.225 2.313" class="clickable"
           animation="property: position; to: 4.885 6 2.313; dur: 2800; easing: easeOutQuad; dir: alternate; loop: 2"
           animation__loop="property: position; to: 4.885 4 2.313; dur: 4050; easing: easeOutQuad; delay: 6000; dir: alternate; loop: true"
           ></a-image>
@@ -111,17 +112,18 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image class="clickable" id="curtain_outside-poi" src="#img_circle0" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.25" animation-click-handler="curtain_outside" alpha-test position="-1.12 -0.5 0.5" class="not-clickable" animation="property: position; to: -1.12 -0.6 0.5; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image id="curtain_outside-poi" src="#img_circle0" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.25" alpha-test position="-1.12 -0.5 0.5" class="not-clickable" animation="property: position; to: -1.12 -0.6 0.5; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true">
+          <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="1 0 -2" class="clickable" animation-click-handler="curtain_outside"></a-entity>
+        </a-image>
       </a-box>
 
 
       <!-- Headboard handlers -->
       <a-image
-        animation-click-handler="headboard_outside"
         id="headboard_outside"
-        class="clickable custom-animation-object"
         shadow="cast: false"
         sshadow-material=""
+        class="clickable"
         position="-22 6.861 17.717"
         geometry="primitive: circle; radius: 1.4"
         desktop-geometry="primitive: circle; radius: 0.8"
@@ -140,9 +142,7 @@
 
       <!-- Headphones -->
       <a-image
-        animation-click-handler="headphones_outside"
         id="headphones"
-        class="clickable"
         look-at="#camera"
         animation="property: position; to: -10.75 -5.0 9.5; dur: 4000; easing: easeOutQuad; dir: alternate; loop: true"
         src="#img_circle0"
@@ -158,15 +158,14 @@
         animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
+      <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="headphones_outside"></a-entity>
       </a-image>
 
 
 
       <!-- lighting -->
       <a-image
-        animation-click-handler="lighting_outside"
         id="lighting"
-        class="clickable"
         look-at="#camera"
         src="#img_circle0"
         alpha-test=""
@@ -182,6 +181,7 @@
         animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
+      <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="lighting_outside"></a-entity>
       </a-image>
 
 
@@ -215,52 +215,10 @@
 
     </a-scene>
 
+    <!-- Dialog related markup -->
+    <?php require 'blocks/dialogue.php'; ?>
 
-    <span class="patent-pending">Patent Pending</span>
-
-    <!-- External HTML overlay, hidden by default, will show over the Aframe canvas -->
-    <div class="dialogue">
-      <div class="dialogue__closer"></div>
-      <div class="dialogue__text">
-        <div class="dialogue__closerX"></div>
-        <div class="dialogue__wrapper">
-          <div class="dialogue__inner">
-            <h2 class="dialogue__headline">Headline</h2>
-            <div class="dialogue__content">Headline</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right now spaces live in different files, this element is used to hide the transition -->
-    <div class="frame-blend-overlay">
-    </div>
-
-    <!-- Loads custom scripts for events and animations -->
-    <script>
-      var dialogueInformation = {
-        clothes_drawer_outside:{
-          title: 'Clothing Storage',
-          content: 'Generous Drawer/Storage Space Built into your Pod',
-        },
-        curtain_outside:{
-          title: 'Designer Privacy Curtain',
-          content: 'Curtain Curated by Interior Designer for Pod Privacy on a Seamless Track with Heavy Fabric to Cut out Noise.',
-        },
-        headphones_outside:{
-          title: 'Airport / Bluetooth (Private)',
-          content: '',
-        },
-        headboard_outside:{
-          title: 'Designer Cushioned Headboard',
-          content: 'Floor-to-Ceiling, Plush, Leather Designer Headboards.',
-        },
-        lighting_outside:{
-          title: 'Bluetooth Lighting Control',
-          content: 'Control Lighting and Even Adjust the Mood with Color Lights Independently in Each Pod.',
-        },
-      }
-    </script>
+    <!-- Loads custom scripts for events and animations <--></-->
     <script src="assets/main.js?v=<?=$globalVersion?>"></script>
 
   </body>

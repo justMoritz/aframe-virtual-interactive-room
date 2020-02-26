@@ -79,7 +79,9 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image id="desk-drawer-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.6" desktop-geometry="primitive: circle; radius: 0.40" animation-click-handler="desk_drawer" scale="1 1 1" alpha-test position="-2.7 -0.25 0" class="clickable" animation="property: position; to: -2.7 -0.75 0; dur: 4200; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image id="desk-drawer-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.6" desktop-geometry="primitive: circle; radius: 0.40" scale="1 1 1" alpha-test position="-2.7 -0.25 0" animation="property: position; to: -2.7 -0.75 0; dur: 4200; easing: easeOutQuad; dir: alternate; loop: true">
+          <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="desk_drawer"></a-entity>
+        </a-image>
       </a-box>
 
       <!-- This box hides both the overflow of the drawer underneath as well as provide a surface for shadows -->
@@ -115,13 +117,10 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image class="clickable" id="curtain-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.66" desktop-geometry="primitive: circle; radius: 0.325" animation-click-handler="curtain" alpha-test position="-2.55 -0.40 -1" class="not-clickable" animation="property: position; to: -2.55 -0.60 -1; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image id="curtain-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.66" desktop-geometry="primitive: circle; radius: 0.325" alpha-test position="-2.55 -0.40 -1" animation="property: position; to: -2.55 -0.60 -1; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true">
+          <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="curtain"></a-entity>
+        </a-image>
       </a-box>
-      <!-- This is the info dialog for the curtain, with close and show more buttons -->
-      <a-image src="#img_circle0" id="curtain-dialog" look-at="#camera" shadow="cast: false; receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="0 1.400 6.560" visible="false" scale="0.8 0.8 0.8">
-        <a-entity id="curtain-dialog-close" animation-click-handler="curtain" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="curtain-dialog-internal"></a-entity>
-        <a-entity id="curtain-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="curtain" class="curtain-dialog-internal"></a-entity>
-      </a-image>
 
 
       <!-- Television and Apple TV Handlers -->
@@ -136,7 +135,9 @@
         animation__mousedown="property: components.material.material.color; type: color; from: #ff7777; to: #7777ff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image id="television-poi" class="clickable" rotation="0 0 0" src="#img_circle0" geometry="primitive: circle; radius: 0.6" desktop-geometry="primitive: circle; radius: 0.4" animation-click-handler="television" alpha-test position="0 0 2" class="not-clickable" animation="property: position; to: 0 -0.3 2; dur: 3800; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image id="television-poi" rotation="0 0 0" src="#img_circle0" geometry="primitive: circle; radius: 0.6" desktop-geometry="primitive: circle; radius: 0.4" alpha-test position="0 0 2" class="not-clickable" animation="property: position; to: 0 -0.3 2; dur: 3800; easing: easeOutQuad; dir: alternate; loop: true">
+          <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="television"></a-entity>
+        </a-image>
         <a-image id="television-appletv" rotation="0 0 0" scale="1.5 1.5 1.5" geometry="height: 1.55; width: 2" src="#img_appletv" animation-click-handler="television" alpha-test position="0 -3 -2" shadow="cast: true;" material="opacity: 0;" class="not-clickable"></a-image>
       </a-box>
 
@@ -177,9 +178,7 @@
 
       <!-- iPhone / Charging Information -->
       <a-image
-        animation-click-handler="iphone"
         id="iphone"
-        class="clickable"
         look-at="#camera"
         src="#img_circle0"
         alpha-test=""
@@ -193,16 +192,14 @@
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
         animation__mousedown_scale="property: scale; to: 1.1 1.1 1.1; startEvents: mouseenter; dur: 500"
         animation__mouseleave_scale="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
-      ><
-        <!-- <a-image id="iphone-poi" look-at="#camera" src="#img_poi" animation-click-handler="iphone" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
+      >
+        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="iphone"></a-entity>
       </a-image>
 
 
       <!-- wireless / Charging Information -->
       <a-image
-        animation-click-handler="wireless"
         id="wireless"
-        class="clickable"
         look-at="#camera"
         src="#img_circle0"
         alpha-test=""
@@ -217,7 +214,8 @@
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
         animation__mousedown_scale="property: scale; to: 1.4 1.4 1.4; startEvents: mouseenter; dur: 500"
         animation__mouseleave_scale="property: scale; to: 1.25 1.25 1.25; startEvents: mouseleave; dur: 500"
-      ><
+      >
+        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="wireless"></a-entity>
       </a-image>
 
 
@@ -227,9 +225,7 @@
 
       <!-- Ipad -->
       <a-image
-        animation-click-handler="ipad"
         id="ipad"
-        class="clickable"
         look-at="#camera"
         animation="property: position; to: -10.28996 -2.5849 -3.01447; dur: 4500; easing: easeOutQuad; dir: alternate; loop: true"
         src="#img_circle0"
@@ -245,14 +241,37 @@
         animation__mousedown_scale="property: scale; to: 1.6 1.6 1.6; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1.5 1.5 1.5; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
-        <!-- <a-image id="ipad-poi" look-at="#camera" src="#img_poi" animation-click-handler="ipad" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
+        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="ipad"></a-entity>
       </a-image>
+
+
+
+      <!-- lighting -->
+      <a-image
+        id="lighting"
+        look-at="#camera"
+        src="#img_circle0"
+        alpha-test=""
+        material="opacity: 0.75"
+        geometry="primitive: circle; radius: 0.56"
+        desktop-geometry="primitive: circle; radius: 0.4"
+        shadow="receive: false"
+        position="-5 12 -9"
+        animation="property: position; to: -5 11 -9; dur: 3650; easing: easeOutQuad; dir: alternate; loop: true"
+        scale="1.75 1.75 1.75"
+        animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
+        animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
+        animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
+        animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
+      >
+      <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="lighting_outside"></a-entity>
+      </a-image>
+
+
 
       <!-- Headphones -->
       <a-image
-        animation-click-handler="headphones"
         id="headphones"
-        class="clickable"
         look-at="#camera"
         animation="property: position; to: -10.06309 -6.0 7.29273; dur: 4000; easing: easeOutQuad; dir: alternate; loop: true"
         src="#img_circle0"
@@ -268,7 +287,7 @@
         animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
-        <!-- <a-image id="headphones-poi" look-at="#camera" src="#img_poi"  animation-click-handler="headphones" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
+        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="headphones"></a-entity>
       </a-image>
 
       <!-- Link to Exterior -->
@@ -299,67 +318,10 @@
 
     </a-scene>
 
-    <!-- External HTML overlay, hidden by default, will show over the Aframe canvas -->
-    <div class="dialogue">
-      <div class="dialogue__closer"></div>
-      <div class="dialogue__text">
-        <div class="dialogue__closerX"></div>
-        <div class="dialogue__wrapper">
-          <div class="dialogue__inner">
-            <h2 class="dialogue__headline">Headline</h2>
-            <div class="dialogue__content">Headline</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Dialog related markup -->
+    <?php require 'blocks/dialogue.php'; ?>
 
-    <span class="patent-pending">Patent Pending</span>
-
-    <!-- Right now spaces live in different files, this element is used to hide the transition -->
-    <div class="frame-blend-overlay">
-    </div>
-
-    <!-- Loads custom scripts for events and animations -->
-    <script>
-      var dialogueInformation = {
-        desk_drawer:{
-          title: 'Pull-out Desk',
-          content: 'Work on your laptop, do homework, or eat meals on this desk on a pull-out track.',
-        },
-        cooler_drawer:{
-          title: 'Insulated Beverage Drawer',
-          content: 'Store Drinks and Snacks in a First-of-its-Kind Insulated Pod Drawer – WOW!!',
-        },
-        curtain:{
-          title: 'Designer Privacy Curtain',
-          content: 'Curtain Curated by Interior Designer for Pod Privacy on a Seamless Track with Heavy Fabric to Cut out Noise.',
-        },
-        iphone:{
-          title: 'USB, HDMI, Built-in Charging Ports',
-          content: 'USB, HDMI, and Power Plugs Galore for Electronics Charging, Game Consoles, and Accessories.',
-        },
-        ipad:{
-          title: 'Connectivity',
-          content: 'With TV, Lighting, Wireless Charging, Bluetooth, and Wireless Headphone Connectivity, You Have it All.',
-        },
-        headphones:{
-          title: 'Airport / Bluetooth (Private)',
-          content: '',
-        },
-        television:{
-          title: '50" Multimedia TV & AppleTV',
-          content: 'Huge Personal Screen for Plug and Play TV/Computer, including AppleTV for each screen—allowing for Private, Wireless, Bluetooth Headphone Connections in Your Separate Pods.',
-        },
-        headboard:{
-          title: 'Designer Cushioned Headboard',
-          content: 'Floor-to-Ceiling, Plush, Leather Designer Headboards.',
-        },
-        wireless:{
-          title: 'Wireless iPhone Charging Port',
-          content: 'Wirelessly charge your phone on this invisible, built-in phone charger.',
-        },
-      }
-    </script>
+    <!-- Loads custom scripts for events and animations <--></-->
     <script src="assets/main.js?v=<?=$globalVersion?>"></script>
 
   </body>
