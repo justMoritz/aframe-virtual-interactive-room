@@ -41,8 +41,8 @@
       content: 'With TV, Lighting, Wireless Charging, Bluetooth, and Wireless Headphone Connectivity, You Have it All.',
     },
     headphones:{
-      title: 'Airport / Bluetooth (Private)',
-      content: '',
+      title: 'Wireless Bluetooth Headphone Connectivity',
+      content: 'Wireless Bluetooth Headphone Connectivity on each side of Pod',
     },
     television:{
       title: '50" Multimedia TV & AppleTV',
@@ -69,8 +69,8 @@
       content: 'Curtain Curated by Interior Designer for Pod Privacy on a Seamless Track with Heavy Fabric to Cut out Noise.',
     },
     headphones_outside:{
-      title: 'Airport / Bluetooth (Private)',
-      content: '',
+      title: 'Wireless Bluetooth Headphone Connectivity',
+      content: 'Wireless Bluetooth Headphone Connectivity on each side of Pod',
     },
     headboard_outside:{
       title: 'Designer Cushioned Headboard',
@@ -80,5 +80,13 @@
       title: 'Bluetooth Lighting Control',
       content: 'Control Lighting and Even Adjust the Mood with Color Lights Independently in Each Pod.',
     },
+  };
+
+  var closerels = document.querySelectorAll(".dialogue__closer");
+    for(var c=0; c<closerels.length; c++){
+    closerels[c].addEventListener('click', function(){
+      toggleDialoge();
+    });
   }
+
 </script>

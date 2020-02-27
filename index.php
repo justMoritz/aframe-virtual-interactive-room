@@ -10,11 +10,14 @@
     <title>Villas on Rio Virtual Pod Tour 2</title>
     <meta name="description" content="Mouse Click Example - A-Frame">
     <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
     <!-- Loading Aframe and Dependencies -->
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="assets/aframe-orbit-controls.min.js"></script>
-    <script src="assets/aframe-teleport-controls.min.js"></script>
+    <!-- <script src="assets/aframe-teleport-controls.min.js"></script> -->
     <script src="assets/aframe-look-at-component.js"></script>
     <script src="assets/animation-mixer.js"></script>
     <script src="assets/aframe-event-set-component.min.js"></script>
@@ -24,6 +27,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet">
 
     <!-- <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script> -->
+
+    <!-- Loads custom scripts for events and animations <-->
+    <script src="assets/main.js?v=<?=$globalVersion?>"></script>
 
   </head>
 
@@ -219,9 +225,6 @@
 
     <!-- Dialog related markup -->
     <?php require 'blocks/dialogue.php'; ?>
-
-    <!-- Loads custom scripts for events and animations <--></-->
-    <script src="assets/main.js?v=<?=$globalVersion?>"></script>
 
   </body>
 </html>

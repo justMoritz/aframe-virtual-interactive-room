@@ -641,8 +641,13 @@ var _handle_desktop_geometry = function( passed_el ){
 };
 
 
+
 // desktop stylez
 AFRAME.registerComponent('desktop-geometry', {
+  schema: {
+    radius: {type: 'string', default: ''},
+    primitive: {type: 'string', default: ''},
+  },
   init: function () {
     _handle_desktop_geometry( this.el );
   }
@@ -689,12 +694,7 @@ var toggleDialoge = function( input ){
 };
 
 
-var closerels = document.querySelectorAll(".dialogue__closer");
-for(var c=0; c<closerels.length; c++){
-  closerels[c].addEventListener('click', function(){
-    toggleDialoge();
-  });
-}
+
 
 
 
@@ -768,7 +768,7 @@ document.addEventListener('gestureend', function(e) {
 // pinch to zoom!
 document.addEventListener('gesturechange', function(e) {
   // 1-e.scale, because everything smaller than one should be treated as negaive
-  // then the whole thing is revered again, and made smaller and fed to the same function
+  // then the whole thing is revered again, and made smaller and fed to the same
   cameraZoomAdjustment( -( (1-e.scale)*0.1) );
 }, false);
 
