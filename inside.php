@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.2.5';
+  $globalVersion = '1.2.6';
 
 ?>
 
@@ -10,6 +10,7 @@
     <title>Villas on Rio Virtual Pod Tour 1</title>
     <meta name="description" content="Mouse Click Example - A-Frame">
     <meta charset="utf-8">
+
 
     <!-- Loading Aframe and Dependencies -->
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
@@ -44,7 +45,7 @@
 
       <!-- Camera with Raycaster -->
       <a-entity id='cameraWrapper' rotation="0 -114.36237590811224 0" position="-0.12365 1.34538 0.72366" >
-        <a-entity id="camera" camera="far: 5000; zoom: 0.8" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
+        <a-entity id="camera" camera="far: 5000; zoom: 0.7" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
       </a-entity>
 
 

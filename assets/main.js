@@ -695,3 +695,80 @@ for(var c=0; c<closerels.length; c++){
     toggleDialoge();
   });
 }
+
+
+
+// scroll listening code below adapted from
+// https://www.sitepoint.com/html5-javascript-mouse-wheel/
+
+
+
+var cameraZoomAdjustment = function( modifier ){
+
+  // fetches the camera and its original `camera`` attribute
+  var camera = document.getElementById("camera");
+  var initialCameraConfig = camera.getAttribute('camera');
+
+  // modifies the camera attribute by the zoom factor
+  // and writes it back to the camer
+  initialCameraConfig.zoom = initialCameraConfig.zoom + modifier;
+
+  if( initialCameraConfig.zoom > 0.33 && initialCameraConfig.zoom < 3 ){
+    camera.setAttribute('camera', initialCameraConfig);
+  }
+
+};
+
+
+/**
+ * Determins if scrolled forward or backward
+ */
+function MouseWheelHandler(e) {
+  // cross-browser wheel delta
+  var e = window.event || e; // old IE support
+  var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+
+  // adjusts the camera zoom by the delta,
+  // either + or - 1
+  cameraZoomAdjustment( delta*0.01 );
+
+  return false;
+}
+
+
+/**
+ * cross-browser scroll listeners
+//  */
+if (document.addEventListener) {
+  // IE9, Chrome, Safari, Opera
+  document.addEventListener("mousewheel", MouseWheelHandler, false);
+  // Firefox
+  document.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+}
+// IE 6/7/8
+else document.attachEvent("onmousewheel", MouseWheelHandler);
+
+
+// pinch to zoom event
+document.addEventListener('gestureend', function(e) {
+  if (e.scale < 1.0) {
+    // User moved fingers closer together
+    // alert('zoom out');
+    cameraZoomAdjustment( -0.15 );
+
+
+  } else if (e.scale > 1.0) {
+    // User moved fingers further apart
+    // alert('zoom in');
+    cameraZoomAdjustment( 0.15 );
+  }
+}, false);
+
+
+// pinch to zoom!
+document.addEventListener('gesturechange', function(e) {
+  // 1-e.scale, because everything smaller than one should be treated as negaive
+  // then the whole thing is revered again, and made smaller and fed to the same function
+  cameraZoomAdjustment( -( (1-e.scale)*0.1) );
+}, false);
+
