@@ -68,7 +68,7 @@
       pointer-events: all; }
   .dialogue__inner {
     padding: 30px;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 300;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.45em;
@@ -76,7 +76,7 @@
     max-width: 600px; }
     @media (max-width: 767px) {
       .dialogue__inner {
-        font-size: 16px; } }
+        font-size: 17px; } }
   .dialogue__headline {
     font-family: questa-grande, serif;
     font-size: 32px;
@@ -91,7 +91,7 @@
     max-width: 600px; }
     @media (min-width: 767px) {
       .dialogue__headline {
-        font-size: 72px; } }
+        font-size: 64px; } }
 
 @keyframes float {
   0% {

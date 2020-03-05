@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.2.6';
+  $globalVersion = '1.3.0';
 
 ?>
 
@@ -49,7 +49,7 @@
 
       <!-- Camera with Raycaster -->
       <a-entity id='cameraWrapper' rotation="0 95 0" position="-0.12365 1.34538 0.72366" >
-        <a-entity id="camera" camera="far: 5000; zoom: 0.8" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
+        <a-entity id="camera" camera="far: 5000; zoom: 0.6" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
       </a-entity>
 
 
@@ -203,11 +203,11 @@
         src="#img_circle2"
         alpha-test=""
         material="opacity: 0.75"
-        geometry="primitive: circle; radius: 1.2"
-        desktop-geometry="primitive: circle; radius: 0.9"
+        geometry="primitive: circle; radius: 1.8"
+        desktop-geometry="primitive: circle; radius: 1.35"
         shadow="receive: false"
-        position="-14 -5.5 4"
-        animation="property: position; to: -14 -5.1 4; dur: 3000; easing: easeOutQuad; dir: alternate; loop: true"
+        position="-13 -4.5 5"
+        animation="property: position; to: -13 -4.1 5; dur: 3000; easing: easeOutQuad; dir: alternate; loop: true"
         scale="1 1 1"
         animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
@@ -218,7 +218,7 @@
 
 
       <!-- Background Image -->
-      <a-sky src="#img_sky"></a-sky>
+      <a-sky id="mainsky" src="#img_sky"></a-sky>
 
 
     </a-scene>

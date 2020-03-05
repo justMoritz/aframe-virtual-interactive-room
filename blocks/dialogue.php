@@ -89,4 +89,15 @@
     });
   }
 
+
+  // listens until the main sky is loaded
+  var mainsky = document.getElementById("mainsky");
+
+  mainsky.addEventListener('materialtextureloaded', function () {
+    // Small timeout just in case?
+    setTimeout(function () {
+      console.log('loaded!');
+    }, 100);
+  });
+
 </script>

@@ -87,7 +87,7 @@
 
   &__inner{
     padding: 30px;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 300;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.45em;
@@ -95,7 +95,7 @@
     max-width: 600px;
 
     @media(max-width: 767px){
-      font-size: 16px;
+      font-size: 17px;
     }
   }
 
@@ -113,7 +113,7 @@
     max-width: 600px;
 
     @media(min-width: 767px){
-      font-size: 72px;
+      font-size: 64px;
     }
     // @media(min-width: 1400px){
     //   font-size: 152px;

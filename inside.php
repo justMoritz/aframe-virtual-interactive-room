@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.2.6';
+  $globalVersion = '1.3.0';
 
 ?>
 
@@ -52,7 +52,7 @@
 
       <!-- Camera with Raycaster -->
       <a-entity id='cameraWrapper' rotation="0 -114.36237590811224 0" position="-0.12365 1.34538 0.72366" >
-        <a-entity id="camera" camera="far: 5000; zoom: 0.7" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
+        <a-entity id="camera" camera="far: 5000; zoom: 0.6" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
       </a-entity>
 
 
@@ -71,7 +71,7 @@
 
 
       <!-- This box hides both the overflow of the drawer underneath as well as provide a surface for shadows -->
-      <a-box id="desk-top" class="clickable" shadow="cast: false" shadow-material="" position="8.77143 -4.62456 0.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 9.37" material="opacity: 0.0000"></a-box>
+      <a-box id="desk-top" class="clickable" shadow="cast: false; receive: false;" shadow-material="" position="8.77143 -4.62456 0.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 9.37" material="opacity: 0.0000"></a-box>
 
       <!-- Desk Drawer functinoality set in main.js through the animation-click-handler attirbute -->
       <a-box
@@ -217,8 +217,8 @@
         desktop-geometry="primitive: circle; radius: 0.325"
         scale="1.25 1.25 1.25"
         shadow="receive: false"
-        position="7.5 -0.85 7.25"
-        animation="property: position; to: 7.5 -1.25 7.25; dur: 3400; easing: easeOutQuad; dir: alternate; loop: true"
+        position="7.5 -2.15 6.25"
+        animation="property: position; to: 7.5 -1.95 6.25; dur: 3400; easing: easeOutQuad; dir: alternate; loop: true"
         animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
         animation__mousedown_scale="property: scale; to: 1.4 1.4 1.4; startEvents: mouseenter; dur: 500"
@@ -308,8 +308,8 @@
         src="#img_circle2"
         alpha-test=""
         material="opacity: 0.8"
-        geometry="primitive: circle; radius: 1.5"
-        desktop-geometry="primitive: circle; radius: 1.3"
+        geometry="primitive: circle; radius: 2.3"
+        desktop-geometry="primitive: circle; radius: 2.0"
         shadow="receive: false"
         position="-5.2 -10 17.7"
         animation="property: position; to: -5.2 -9 17.7; dur: 3000; easing: easeOutQuad; dir: alternate; loop: true"
@@ -322,7 +322,7 @@
       </a-image>
 
       <!-- Background Image -->
-      <a-sky src="#img_sky"></a-sky>
+      <a-sky id="mainsky" src="#img_sky"></a-sky>
 
 
     </a-scene>

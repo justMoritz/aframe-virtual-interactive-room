@@ -772,3 +772,8 @@ document.addEventListener('gesturechange', function(e) {
   cameraZoomAdjustment( -( (1-e.scale)*0.1) );
 }, false);
 
+
+
+
+
+
