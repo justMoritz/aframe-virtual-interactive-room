@@ -53,7 +53,7 @@
       content: 'Floor-to-Ceiling, Plush, Leather Designer Headboards.',
     },
     wireless:{
-      title: 'Wireless iPhone Charging Port',
+      title: 'Wireless Smart Device Charging Port',
       content: 'Wirelessly charge your phone on this invisible, built-in phone charger.',
     },
     lighting:{
