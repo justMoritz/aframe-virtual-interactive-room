@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.3.1';
+  $globalVersion = '1.3.2';
 
 ?>
 
