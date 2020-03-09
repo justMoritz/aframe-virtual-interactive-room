@@ -32,15 +32,15 @@
       title: 'Designer Privacy Curtain',
       content: 'Curtain Curated by Interior Designer for Pod Privacy on a Seamless Track with Heavy Fabric to Cut out Noise.',
     },
-    iphone:{
+    charging:{
       title: 'USB, HDMI, Built-in Charging Ports',
       content: 'USB, HDMI, and Power Plugs Galore for Electronics Charging, Game Consoles, and Accessories.',
     },
-    ipad:{
+    connectivity:{
       title: 'Connectivity',
       content: 'With TV, Lighting, Wireless Charging, Bluetooth, and Wireless Headphone Connectivity, You Have it All.',
     },
-    headphones:{
+    bluetooth:{
       title: 'Wireless Bluetooth Headphone Connectivity',
       content: 'Wireless Bluetooth Headphone Connectivity on each side of Pod',
     },
@@ -68,7 +68,7 @@
       title: 'Designer Privacy Curtain',
       content: 'Curtain Curated by Interior Designer for Pod Privacy on a Seamless Track with Heavy Fabric to Cut out Noise.',
     },
-    headphones_outside:{
+    bluetooth_outside:{
       title: 'Wireless Bluetooth Headphone Connectivity',
       content: 'Wireless Bluetooth Headphone Connectivity on each side of Pod',
     },
@@ -82,6 +82,7 @@
     },
   };
 
+  // Dialogue close click listener
   var closerels = document.querySelectorAll(".dialogue__closer");
     for(var c=0; c<closerels.length; c++){
     closerels[c].addEventListener('click', function(){
@@ -91,13 +92,15 @@
 
 
   // listens until the main sky is loaded
+  // not currently used, but maybe useful!
   var mainsky = document.getElementById("mainsky");
-
   mainsky.addEventListener('materialtextureloaded', function () {
     // Small timeout just in case?
     setTimeout(function () {
       console.log('loaded!');
     }, 100);
   });
+
+
 
 </script>

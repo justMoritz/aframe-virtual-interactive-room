@@ -26,8 +26,6 @@
     <link rel="stylesheet" href="https://use.typekit.net/foo7sru.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet">
 
-    <!-- <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script> -->
-
     <!-- Loads custom scripts for events and animations <-->
     <script src="assets/main.js?v=<?=$globalVersion?>"></script>
 
@@ -47,7 +45,7 @@
       </a-assets>
 
 
-      <!-- Camera with Raycaster -->
+      <!-- Camera with Raycaster (so we can interact with the scene with the mouse/touch) -->
       <a-entity id='cameraWrapper' rotation="0 95 0" position="-0.12365 1.34538 0.72366" >
         <a-entity id="camera" camera="far: 5000; zoom: 0.6" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
       </a-entity>
@@ -64,6 +62,10 @@
 
 
       <!-- Door- and bedframe mattes -->
+      <!-- These are used to both hide the overflow of overlapping objects such as drawers and POIs, as well as provide a surface to recieve shadows -->
+      <!-- The shadow-material component (registered in main.js) is used to provide a transparent object which still reveieves a shadow. -->
+      <!-- Note that the material component here is not neccesary, but I left it on the element for debugging. We can temporarily remvoe the shadow material -->
+      <!-- Component, and then we can see where the matte is positioned in 3D space -->
       <a-box shadow="cast: false" shadow-material="" position="-6.95214 -2.97154 10.46272" geometry="width: 0.5; height: 15; depth: 6" material="opacity: 0.25"></a-box>
       <a-box shadow="cast: false" shadow-material="" position="-6.952 -2.972 -5.86206" geometry="width: 0.5; height: 15; depth: 6.3" material="opacity: 0.25"></a-box>
       <a-box shadow="cast: false" shadow-material="" position="-12.25215 -9.49217 2.34542" geometry="width: 10; height: 4; depth: 0.13" material="opacity: 0.25"></a-box>
@@ -74,7 +76,11 @@
       <!-- This box hides both the overflow of the drawer underneath as well as provide a surface for shadows -->
       <a-box id="desk-top" class="clickable" shadow="cast: false" sshadow-material="" position="8.77143 -4.62456 0.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 9.37" material="opacity: 0.0000"></a-box>
 
+
       <!-- clothes Drawer functinoality set in main.js through the animation-click-handler attirbute -->
+      <!-- Note how the click handler (the actual POI) is cascading through its parent-elements -->
+      <!-- That means when you click the child (and child-child), its parents will also inherit all these handlers -->
+      <!-- It's important to turn off the other handlers, otherwise you would trigger the animation/whatever twice! -->
       <a-box
         id="clothes-drawer"
         class="not-clickable custom-animation-object clothes_drawer_click_class"
@@ -148,9 +154,9 @@
       </a-image>
 
 
-      <!-- Headphones -->
+      <!-- bluetooth -->
       <a-image
-        id="headphones"
+        id="bluetooth"
         look-at="#camera"
         animation="property: position; to: -10.75 -5.0 9.5; dur: 4000; easing: easeOutQuad; dir: alternate; loop: true"
         src="#img_circle0"
@@ -166,9 +172,8 @@
         animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
-      <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="headphones_outside"></a-entity>
+      <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="bluetooth_outside"></a-entity>
       </a-image>
-
 
 
       <!-- lighting -->
@@ -191,7 +196,6 @@
       >
       <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="lighting_outside"></a-entity>
       </a-image>
-
 
 
       <!-- Link to Interior -->

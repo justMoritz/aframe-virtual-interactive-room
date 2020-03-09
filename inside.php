@@ -14,7 +14,6 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
-
     <!-- Loading Aframe and Dependencies -->
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="assets/aframe-orbit-controls.min.js"></script>
@@ -26,9 +25,6 @@
     <link rel="stylesheet" href="assets/styles/styles.css?v=<?=$globalVersion?>" />
     <link rel="stylesheet" href="https://use.typekit.net/foo7sru.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet">
-
-    <!-- <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script> -->
-
 
     <!-- Loads custom scripts for events and animations <-->
     <script src="assets/main.js?v=<?=$globalVersion?>"></script>
@@ -50,7 +46,7 @@
       </a-assets>
 
 
-      <!-- Camera with Raycaster -->
+      <!-- Camera with Raycaster (so we can interact with the scene with the mouse/touch) -->
       <a-entity id='cameraWrapper' rotation="0 -114.36237590811224 0" position="-0.12365 1.34538 0.72366" >
         <a-entity id="camera" camera="far: 5000; zoom: 0.6" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
       </a-entity>
@@ -66,14 +62,30 @@
       <!-- <a-sphere position="6.96188 -0.37915 -9.11629" id="pizzaSphere" radius="1.25" color="#EF2D5E" shadow="" event-set__enter="[object Object]" event-set__leave="[object Object]" material="" geometry="radius: 0.5" animation="property: position; to: 5 -4.6 2; dur: 5500; dir: alternate; easing: linear; loop: true"></a-sphere> -->
 
 
+      <!-- MATTES: -->
+      <!-- These are used to both hide the overflow of overlapping objects such as drawers and POIs, as well as provide a surface to recieve shadows -->
+      <!-- The shadow-material component (registered in main.js) is used to provide a transparent object which still reveieves a shadow. -->
+      <!-- Note that the material component here is not neccesary, but I left it on the element for debugging. We can temporarily remvoe the shadow material -->
+
       <!-- Far-side Counter Top Matte -->
       <a-box shadow="cast: false" shadow-material="" position="8.72688 -3.66488 -7.75" width="4" height="4" geometry="width: 4.5; height: 2.04; depth: 6" material="opacity: 0.25"></a-box>
 
-
-      <!-- This box hides both the overflow of the drawer underneath as well as provide a surface for shadows -->
+      <!-- Desk-Matte. -->
       <a-box id="desk-top" class="clickable" shadow="cast: false; receive: false;" shadow-material="" position="8.77143 -4.62456 0.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 9.37" material="opacity: 0.0000"></a-box>
 
+      <!-- Desk and Drawer Mattes -->
+      <a-box id="cooler-top" shadow="cast: false" shadow-material="" position="8.771 -2.836 8.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 6.6" material="opacity: 0.400"></a-box>
+      <a-box id="cooler-side" shadow="cast: false" shadow-material="" position="8.771 -5.330 5" width="4" height="4" geometry="width: 4.5; height: 4.62; depth: 0.35" material="opacity: 0.400"></a-box>
+
+      <!-- Pillow Top Matte -->
+      <a-box id="pillowtop-matte" shadow="cast: false" shadow-material="" position="-14.8693 -7.20108 -0.4575" width="4" height="4" geometry="width: 7; height: 2.04; depth: 15" material="opacity: 0.25" rotation="0 0 -41.76"></a-box>
+
+
+
       <!-- Desk Drawer functinoality set in main.js through the animation-click-handler attirbute -->
+      <!-- Note how the click handler (the actual POI) is cascading through its parent-elements -->
+      <!-- That means when you click the child (and child-child), its parents will also inherit all these handlers -->
+      <!-- It's important to turn off the other handlers, otherwise you would trigger the animation/whatever twice! -->
       <a-box
         sanimation-click-handler="desk_drawer"
         dialog-more-button="desk-drawer"
@@ -93,9 +105,7 @@
         </a-image>
       </a-box>
 
-      <!-- This box hides both the overflow of the drawer underneath as well as provide a surface for shadows -->
-      <a-box id="cooler-top" shadow="cast: false" shadow-material="" position="8.771 -2.836 8.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 6.6" material="opacity: 0.400"></a-box>
-      <a-box id="cooler-side" shadow="cast: false" shadow-material="" position="8.771 -5.330 5" width="4" height="4" geometry="width: 4.5; height: 4.62; depth: 0.35" material="opacity: 0.400"></a-box>
+
 
       <!-- The storage cooler drawer -->
       <a-box
@@ -114,6 +124,7 @@
       </a-box>
 
 
+
       <!-- Curtain functinoality set in main.js through the animation-click-handler attirbute -->
       <a-box
         id="curtain"
@@ -126,10 +137,11 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image id="curtain-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.66" desktop-geometry="primitive: circle; radius: 0.325" alpha-test position="-2.55 -0.40 -1" animation="property: position; to: -2.55 -0.60 -1; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true">
+        <a-image id="curtain-poi" look-at="#camera" src="#img_circle0" geometry="primitive: circle; radius: 0.66" desktop-geometry="primitive: circle; radius: 0.425" alpha-test position="-2.55 -0.40 -1" animation="property: position; to: -2.55 -0.60 -1; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true">
           <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="curtain"></a-entity>
         </a-image>
       </a-box>
+
 
 
       <!-- Television and Apple TV Handlers -->
@@ -150,11 +162,6 @@
         <a-image id="television-appletv" rotation="0 0 0" scale="1.5 1.5 1.5" geometry="height: 1.55; width: 2" src="#img_appletv" animation-click-handler="television" alpha-test position="0 -3 -2" shadow="cast: true;" material="opacity: 0;" class="not-clickable"></a-image>
       </a-box>
 
-      <!-- This is the info dialog for the desk drawer, with close and show more buttons -->
-      <a-image src="#img_circle0" id="television-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="6.428 2.48 0.4" visible="false">
-        <a-entity id="television-dialog-close" animation-click-handler="television" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="television-dialog-internal"></a-entity>
-        <a-entity id="television-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="television" class="television-dialog-internal"></a-entity>
-      </a-image>
 
 
       <!-- Headboard handlers -->
@@ -178,16 +185,11 @@
       >
       </a-image>
 
-      <!-- This is the info dialog for the desk drawer, with close and show more buttons -->
-      <a-image src="#img_circle0" id="headboard-dialog" look-at="#camera" shadow="cast:  false;  receive:  false" geometry="primitive: plane; height: 5; width: 4.25" position="-7.476 3.969 -2.664" visible="false" scale="1.15 1.15 1.15">
-        <a-entity id="headboard-dialog-close" animation-click-handler="headboard" geometry="" position="1.5 2.05 0" alpha-test material="opacity: 0;" class="headboard-dialog-internal"></a-entity>
-        <a-entity id="headboard-dialog-more" geometry="primitive: plane; height: 1; width: 2" position="0 -1.75 2" alpha-test material="opacity: 0;" dialog-more-button="headboard" class="headboard-dialog-internal"></a-entity>
-      </a-image>
 
 
-      <!-- iPhone / Charging Information -->
+      <!-- Plugs and Charging Information -->
       <a-image
-        id="iphone"
+        id="charging"
         look-at="#camera"
         src="#img_circle0"
         alpha-test=""
@@ -202,7 +204,7 @@
         animation__mousedown_scale="property: scale; to: 1.1 1.1 1.1; startEvents: mouseenter; dur: 500"
         animation__mouseleave_scale="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 500"
       >
-        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="iphone"></a-entity>
+        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="charging"></a-entity>
       </a-image>
 
 
@@ -228,18 +230,15 @@
       </a-image>
 
 
-      <!-- Pillow Top Matte -->
-      <a-box id="pillowtop-matte" shadow="cast: false" shadow-material="" position="-14.8693 -7.20108 -0.4575" width="4" height="4" geometry="width: 7; height: 2.04; depth: 15" material="opacity: 0.25" rotation="0 0 -41.76"></a-box>
 
-
-      <!-- Ipad -->
+      <!-- Connectivity Information -->
       <a-image
-        id="ipad"
+        id="connectivity"
         look-at="#camera"
         animation="property: position; to: -10.28996 -2.5849 -3.01447; dur: 4500; easing: easeOutQuad; dir: alternate; loop: true"
         src="#img_circle0"
         alpha-test=""
-        material="opacity: 0.75"
+        material="opacity: 0.9"
         geometry="primitive: circle; radius: 0.5"
         desktop-geometry="primitive: circle; radius: 0.33"
         shadow="receive: false"
@@ -250,7 +249,7 @@
         animation__mousedown_scale="property: scale; to: 1.6 1.6 1.6; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1.5 1.5 1.5; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
-        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="ipad"></a-entity>
+        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="connectivity"></a-entity>
       </a-image>
 
 
@@ -278,16 +277,16 @@
 
 
 
-      <!-- Headphones -->
+      <!-- Bluetooth -->
       <a-image
-        id="headphones"
+        id="bluetooth"
         look-at="#camera"
         animation="property: position; to: -10.06309 -6.0 7.29273; dur: 4000; easing: easeOutQuad; dir: alternate; loop: true"
         src="#img_circle0"
         alpha-test=""
         material="opacity: 0.75"
-        geometry="primitive: circle; radius: 0.375;"
-        desktop-geometry="primitive: circle; radius: 0.25;"
+        geometry="primitive: circle; radius: 0.475;"
+        desktop-geometry="primitive: circle; radius: 0.35;"
         shadow="receive: false"
         position="-10.06309 -6.92725 7.29273"
         scale="1.85 1.85 1.85"
@@ -296,8 +295,10 @@
         animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
-        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="headphones"></a-entity>
+        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="bluetooth"></a-entity>
       </a-image>
+
+
 
       <!-- Link to Exterior -->
       <a-image

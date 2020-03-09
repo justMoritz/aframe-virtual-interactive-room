@@ -1,9 +1,14 @@
-// I would like to apologize for this horribly oranized, super WET code.
-// My only excuse is that I had to learn an EXTREMELY COMPLEX library, and make TWO rooms in less than 48 hours.
-// So there you have it, enjoy!
 
+/**
+ * Helper functions that define the interactivity of
+ * every single POI, and the animations associated with it!
+ */
 var allCustomAnimationsHelper = {
+  // I would like to apologize for this horribly oranized, super WET code.
+  // My only excuse is that I had to learn an EXTREMELY COMPLEX library, and make TWO rooms in less than 48 hours.
+  // So there you have it, enjoy!
 
+  // This updates the text in the Dialogue that is not part of aframe but will overlay it
   updateHTMLDialogText: function( input ){
     var title   = document.querySelector(".dialogue__headline");
     var content = document.querySelector(".dialogue__content");
@@ -11,20 +16,21 @@ var allCustomAnimationsHelper = {
     content.innerHTML = dialogueInformation[input].content;
   },
 
+  // this resets all animatinos, except the one current clicked
+  // Checks which animation was called, and force-closes all others (calls it with `true`)
   closeAllOthers: function( input ){
-    //Checks which animation was called, and foce-closes all others
     if(input != 'desk_drawer')
       allCustomAnimationsHelper.desk_drawer(true);
     if(input != 'cooler_drawer')
       allCustomAnimationsHelper.cooler_drawer(true);
     if(input != 'curtain')
       allCustomAnimationsHelper.curtain(true);
-    if(input != 'iphone')
-      allCustomAnimationsHelper.iphone(true);
-    if(input != 'ipad')
-      allCustomAnimationsHelper.ipad(true);
-    if(input != 'headphones')
-      allCustomAnimationsHelper.headphones(true);
+    if(input != 'charging')
+      allCustomAnimationsHelper.charging(true);
+    if(input != 'connectivity')
+      allCustomAnimationsHelper.connectivity(true);
+    if(input != 'bluetooth')
+      allCustomAnimationsHelper.bluetooth(true);
     if(input != 'television')
       allCustomAnimationsHelper.television(true);
     if(input != 'headboard')
@@ -33,8 +39,8 @@ var allCustomAnimationsHelper = {
       allCustomAnimationsHelper.wireless(true);
     if(input != 'curtain_outside')
       allCustomAnimationsHelper.curtain_outside(true);
-    if(input != 'headphones_outside')
-      allCustomAnimationsHelper.headphones_outside(true);
+    if(input != 'bluetooth_outside')
+      allCustomAnimationsHelper.bluetooth_outside(true);
     if(input != 'headboard_outside')
       allCustomAnimationsHelper.headboard_outside(true);
     if(input != 'clothes_drawer_outside')
@@ -127,9 +133,9 @@ var allCustomAnimationsHelper = {
     }
   },
 
-  headphones_outside: function( forceClose ){
-    var drawer   = document.getElementById("headphones");
-    var poi      = document.getElementById("headphones-poi");
+  bluetooth_outside: function( forceClose ){
+    var drawer   = document.getElementById("bluetooth");
+    var poi      = document.getElementById("bluetooth-poi");
 
     if(drawer){
       // opening animation and dialogue activation
@@ -344,9 +350,9 @@ var allCustomAnimationsHelper = {
     }
   },
 
-  headphones: function( forceClose ){
-    var drawer   = document.getElementById("headphones");
-    var poi      = document.getElementById("headphones-poi");
+  bluetooth: function( forceClose ){
+    var drawer   = document.getElementById("bluetooth");
+    var poi      = document.getElementById("bluetooth-poi");
 
     if(drawer){
       // opening animation and dialogue activation
@@ -412,9 +418,9 @@ var allCustomAnimationsHelper = {
     }
   },
 
-  iphone: function( forceClose ){
-    var drawer   = document.getElementById("iphone");
-    var poi      = document.getElementById("iphone-poi");
+  charging: function( forceClose ){
+    var drawer   = document.getElementById("charging");
+    var poi      = document.getElementById("charging-poi");
 
     if(drawer){
       // opening animation and dialogue activation
@@ -482,9 +488,9 @@ var allCustomAnimationsHelper = {
     }
   },
 
-  ipad: function( forceClose ){
-    var drawer   = document.getElementById("ipad");
-    var poi      = document.getElementById("ipad-poi");
+  connectivity: function( forceClose ){
+    var drawer   = document.getElementById("connectivity");
+    var poi      = document.getElementById("connectivity-poi");
 
     if(drawer){
       // opening animation and dialogue activation
@@ -560,9 +566,28 @@ var allCustomAnimationsHelper = {
       }
     }
   },
-
 };
 
+
+
+/**
+ * Not Aframe Related, hides and shows the dialog
+ */
+var toggleDialoge = function( input ){
+  if( document.querySelector(".dialogue").classList.contains('this--visible') ){
+    document.querySelector(".dialogue").classList.remove('this--visible');
+    // also reset all animations
+    allCustomAnimationsHelper.closeAllOthers( false );
+  }else{
+    document.querySelector(".dialogue").classList.add('this--visible');
+  }
+  // sorry buddy, you were nice too
+  // document.querySelector(".dialogue").classList.toggle('this--visible');
+};
+
+
+
+/* * * * * * * * * * * * AFRAME COMPONENT EXTENSIONS * * * * * * * * * * * * * */
 
 
 
@@ -618,8 +643,8 @@ AFRAME.registerComponent('animation-click-handler', {
 
 
 
-
 /**
+ * Helper function for the Custom Desktop size component defined below
  * Allows for different geometry (ie POI size) on Desktop
  */
 var _handle_desktop_geometry = function( passed_el ){
@@ -642,7 +667,12 @@ var _handle_desktop_geometry = function( passed_el ){
 
 
 
-// desktop stylez
+/**
+ * This custom component allows for a different size POI on a certain
+ * screen size (defined in the helper function above)
+ * That way we can have larger icons on mobile than on desktop,
+ * or something similar!
+ */
 AFRAME.registerComponent('desktop-geometry', {
   schema: {
     radius: {type: 'string', default: ''},
@@ -655,12 +685,17 @@ AFRAME.registerComponent('desktop-geometry', {
 
 
 
+/**
+ * This custom Component is responsible for allowing the use
+ * of transparent PNGs in images with the ability to see through the items
+ */
 AFRAME.registerComponent('alpha-test', {
-    dependencies: ['material'],
-    init: function () {
-      this.el.getObject3D('mesh').material.alphaTest = 0.5;
-    }
-  });
+  dependencies: ['material'],
+  init: function () {
+    this.el.getObject3D('mesh').material.alphaTest = 0.5;
+  }
+});
+
 
 
 /**
@@ -675,34 +710,16 @@ AFRAME.registerComponent('shadow-material', {
     let mesh = el.getObject3D('mesh');
     if (!mesh){return;}
     mesh.material = new THREE.ShadowMaterial();
-    mesh.material.opacity = 0.25;
+    mesh.material.opacity = 0.015;
   }
 });
 
 
-// hides and shows the dialog
-var toggleDialoge = function( input ){
-  if( document.querySelector(".dialogue").classList.contains('this--visible') ){
-    document.querySelector(".dialogue").classList.remove('this--visible');
-    // also reset all animations
-    allCustomAnimationsHelper.closeAllOthers( false );
-  }else{
-    document.querySelector(".dialogue").classList.add('this--visible');
-  }
-  // sorry buddy, you were nice too
-  // document.querySelector(".dialogue").classList.toggle('this--visible');
-};
 
-
-
-
-
-
-// scroll listening code below adapted from
-// https://www.sitepoint.com/html5-javascript-mouse-wheel/
-
-
-
+/**
+ * Helper function that assits in
+ * zooming with the mousewheel and pinch to zoom
+ */
 var cameraZoomAdjustment = function( modifier ){
 
   // fetches the camera and its original `camera`` attribute
@@ -716,12 +733,14 @@ var cameraZoomAdjustment = function( modifier ){
   if( initialCameraConfig.zoom > 0.33 && initialCameraConfig.zoom < 3 ){
     camera.setAttribute('camera', initialCameraConfig);
   }
-
 };
+
 
 
 /**
  * Determins if scrolled forward or backward
+ * scroll listening code below adapted from
+ * https://www.sitepoint.com/html5-javascript-mouse-wheel/
  */
 function MouseWheelHandler(e) {
   // cross-browser wheel delta
@@ -736,9 +755,10 @@ function MouseWheelHandler(e) {
 }
 
 
+
 /**
  * cross-browser scroll listeners
-//  */
+ */
 if (document.addEventListener) {
   // IE9, Chrome, Safari, Opera
   document.addEventListener("mousewheel", MouseWheelHandler, false);
@@ -749,13 +769,15 @@ if (document.addEventListener) {
 else document.attachEvent("onmousewheel", MouseWheelHandler);
 
 
-// pinch to zoom event
+
+/**
+ * pinch to zoom end event
+ */
 document.addEventListener('gestureend', function(e) {
   if (e.scale < 1.0) {
     // User moved fingers closer together
     // alert('zoom out');
     cameraZoomAdjustment( -0.15 );
-
 
   } else if (e.scale > 1.0) {
     // User moved fingers further apart
@@ -765,15 +787,13 @@ document.addEventListener('gestureend', function(e) {
 }, false);
 
 
-// pinch to zoom!
+
+/**
+ * pinch to zoom change event
+ */
 document.addEventListener('gesturechange', function(e) {
   // 1-e.scale, because everything smaller than one should be treated as negaive
   // then the whole thing is revered again, and made smaller and fed to the same
   cameraZoomAdjustment( -( (1-e.scale)*0.1) );
 }, false);
-
-
-
-
-
 
