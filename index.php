@@ -106,7 +106,7 @@
         >
           <a-image id="clothes-drawer-poi" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.33" look-at="#camera" src="#img_circle0" alpha-test position="4.885 3.225 2.313" class="clickable"
           animation="property: position; to: 4.885 6 2.313; dur: 2800; easing: easeOutQuad; dir: alternate; loop: 2"
-          animation__loop="property: position; to: 4.885 4 2.313; dur: 4050; easing: easeOutQuad; delay: 6000; dir: alternate; loop: true"
+          animation__loop="property: position; to: 4.885 4 2.313; dur: 4050; easing: easeOutQuad; delay: 6500; dir: alternate; loop: true"
           ></a-image>
         </a-box>
       </a-box>
