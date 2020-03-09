@@ -86,7 +86,7 @@
   var closerels = document.querySelectorAll(".dialogue__closer");
     for(var c=0; c<closerels.length; c++){
     closerels[c].addEventListener('click', function(){
-      toggleDialoge();
+      aframeInteractions.toggleDialoge();
     });
   }
 
