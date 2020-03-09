@@ -75,11 +75,10 @@
 
       <!-- Desk and Drawer Mattes -->
       <a-box id="cooler-top" shadow="cast: false" shadow-material="" position="8.771 -2.836 8.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 6.6" material="opacity: 0.400"></a-box>
-      <a-box id="cooler-side" shadow="cast: false" shadow-material="" position="8.771 -5.330 5" width="4" height="4" geometry="width: 4.5; height: 4.62; depth: 0.35" material="opacity: 0.400"></a-box>
+      <a-box id="cooler-side" shadow="cast: false; receive: false;" shadow-material="" position="8.771 -5.330 5" width="4" height="4" geometry="width: 4.5; height: 4.62; depth: 0.35" material="opacity: 0.400"></a-box>
 
       <!-- Pillow Top Matte -->
-      <a-box id="pillowtop-matte" shadow="cast: false" shadow-material="" position="-14.8693 -7.20108 -0.4575" width="4" height="4" geometry="width: 7; height: 2.04; depth: 15" material="opacity: 0.25" rotation="0 0 -41.76"></a-box>
-
+      <a-box id="pillowtop-matte" shadow="cast: false" shadow-material="" position="-14.52108 -6.46216 -0.54332" width="4" height="4" geometry="width: 7.5; height: 0.001; depth: 15.31" material="opacity: 0.25" rotation="-1.60 0 -41.76"></a-box>
 
 
       <!-- Desk Drawer functinoality set in main.js through the animation-click-handler attirbute -->
@@ -219,8 +218,8 @@
         desktop-geometry="primitive: circle; radius: 0.325"
         scale="1.25 1.25 1.25"
         shadow="receive: false"
-        position="7.5 -2.15 6.25"
-        animation="property: position; to: 7.5 -1.95 6.25; dur: 3400; easing: easeOutQuad; dir: alternate; loop: true"
+        position="7.5 -1.0 6.25"
+        animation="property: position; to: 7.5 -1.25 6.25; dur: 3400; easing: easeOutQuad; dir: alternate; loop: true"
         animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
         animation__mousedown_scale="property: scale; to: 1.4 1.4 1.4; startEvents: mouseenter; dur: 500"

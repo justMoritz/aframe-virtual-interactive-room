@@ -724,7 +724,7 @@ var aframeInteractions = (function(){
       let mesh = el.getObject3D('mesh');
       if (!mesh){return;}
       mesh.material = new THREE.ShadowMaterial();
-      mesh.material.opacity = 0.015;
+      mesh.material.opacity = 0.2;
     }
   });
 
