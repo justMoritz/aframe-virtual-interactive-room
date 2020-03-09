@@ -14,6 +14,11 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
+    <!-- If this GET parameter is set, we will display beautiful shadows on mattes, something I really regret losing in the production verion -->
+    <script>
+      var showShadows = <?=(( isset($_GET['shadows']) && $_GET['shadows'] == 'false' ) ? 'false' : 'true')?>
+    </script>
+
     <!-- Loading Aframe and Dependencies -->
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="assets/aframe-orbit-controls.min.js"></script>
@@ -55,10 +60,6 @@
       <a-entity light="angle: 20; decay: 7; castShadow: true; distance: 10; shadowCameraFov: 88.5; shadowCameraNear: 2.22; shadowCameraTop: 6.06; shadowCameraRight: 16.83; shadowCameraBottom: -4.91; shadowCameraLeft: -13.19;" position="-7.52044 6.6806 2.678"></a-entity>
       <a-entity light="angle: 20; decay: 10; castShadow: true; distance: 10; shadowCameraFov: 88.5; shadowCameraNear: 2.04; shadowCameraTop: 9.48; shadowCameraRight: 16.74; shadowCameraBottom: -4.67; shadowCameraLeft: -13.27" position="4.69131 6.6806 0.50657"></a-entity>
       <a-entity light="intensity: 0.5; type: ambient"></a-entity>
-
-
-      <!-- Goodbye, Friend :'(' -->
-      <!-- <a-sphere position="6.96188 -0.37915 -9.11629" id="pizzaSphere" radius="1.25" color="#EF2D5E" shadow="" event-set__enter="[object Object]" event-set__leave="[object Object]" material="" geometry="radius: 0.5" animation="property: position; to: 5 -4.6 2; dur: 5500; dir: alternate; easing: linear; loop: true"></a-sphere> -->
 
 
       <!-- Door- and bedframe mattes -->
@@ -200,7 +201,7 @@
 
       <!-- Link to Interior -->
       <a-image
-        framechange-click-handler="inside.php"
+        framechange-click-handler="inside.php<?=(( isset($_GET['shadows']) ) ? '?shadows='.$_GET['shadows'] : '')?>"
         id="arrow"
         class="clickable"
         look-at="#camera"
