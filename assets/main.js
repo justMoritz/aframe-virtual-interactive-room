@@ -12,6 +12,13 @@
 var aframeInteractions = (function(){
 
 
+  // the hasShadows variable is set in the HTML head, and if it is true,
+  // we're going to use visible shadows instead of (almost) invisible ones
+  var _shadowOpacity = 0.0012;
+  if( hasShadows )
+    _shadowOpacity = 0.2;
+
+
   /**
    * Helper functions that define the interactivity of
    * every single POI, and the animations associated with it!
@@ -724,7 +731,7 @@ var aframeInteractions = (function(){
       let mesh = el.getObject3D('mesh');
       if (!mesh){return;}
       mesh.material = new THREE.ShadowMaterial();
-      mesh.material.opacity = 0.2;
+      mesh.material.opacity = _shadowOpacity;
     }
   });
 
@@ -829,5 +836,3 @@ var aframeInteractions = (function(){
   };
 
 })();
-
-

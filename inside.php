@@ -14,6 +14,11 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
+    <!-- If this GET parameter is set, we will display beautiful shadows on mattes, something I really regret losing in the production verion -->
+    <script>
+      var hasShadows = <?=(( isset($_GET['shadows']) && $_GET['shadows'] == 'true' ) ? 'true' : 'false')?>
+    </script>
+
     <!-- Loading Aframe and Dependencies -->
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="assets/aframe-orbit-controls.min.js"></script>
@@ -59,7 +64,7 @@
 
 
       <!-- Goodbye, Friend :'(' -->
-      <!-- <a-sphere position="6.96188 -0.37915 -9.11629" id="pizzaSphere" radius="1.25" color="#EF2D5E" shadow="" event-set__enter="[object Object]" event-set__leave="[object Object]" material="" geometry="radius: 0.5" animation="property: position; to: 5 -4.6 2; dur: 5500; dir: alternate; easing: linear; loop: true"></a-sphere> -->
+      <!-- <a-sphere position="6.96188 -0.37915 -9.11629" id="pizzaSphere" radius="1.25" color="#EF2D5E" shadow="" material="opacity: 0.1" geometry="radius: 0.5" animation="property: position; to: 5 -4.6 2; dur: 5500; dir: alternate; easing: linear; loop: true"></a-sphere> -->
 
 
       <!-- MATTES: -->
@@ -71,7 +76,7 @@
       <a-box shadow="cast: false" shadow-material="" position="8.72688 -3.66488 -7.75" width="4" height="4" geometry="width: 4.5; height: 2.04; depth: 6" material="opacity: 0.25"></a-box>
 
       <!-- Desk-Matte. -->
-      <a-box id="desk-top" class="clickable" shadow="cast: false; receive: false;" shadow-material="" position="8.77143 -4.62456 0.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 9.37" material="opacity: 0.0000"></a-box>
+      <a-box id="desk-top" class="clickable" shadow="cast: false;" shadow-material="" position="8.77143 -4.62456 0.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 9.37" material="opacity: 0.0000"></a-box>
 
       <!-- Desk and Drawer Mattes -->
       <a-box id="cooler-top" shadow="cast: false" shadow-material="" position="8.771 -2.836 8.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 6.6" material="opacity: 0.400"></a-box>
@@ -301,7 +306,7 @@
 
       <!-- Link to Exterior -->
       <a-image
-        framechange-click-handler="index.php"
+        framechange-click-handler="index.php<?=(( isset($_GET['shadows']) && $_GET['shadows'] == 'true' ) ? '?shadows=true' : '')?>"
         id="arrow"
         class="clickable"
         look-at="#camera"
