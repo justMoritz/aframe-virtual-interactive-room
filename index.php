@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.1.0';
+  $globalVersion = '1.3.2';
 
 ?>
 
@@ -9,11 +9,15 @@
   <head>
     <title>Villas on Rio Virtual Pod Tour 2</title>
     <meta name="description" content="Mouse Click Example - A-Frame">
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
     <!-- Loading Aframe and Dependencies -->
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="assets/aframe-orbit-controls.min.js"></script>
-    <script src="assets/aframe-teleport-controls.min.js"></script>
+    <!-- <script src="assets/aframe-teleport-controls.min.js"></script> -->
     <script src="assets/aframe-look-at-component.js"></script>
     <script src="assets/animation-mixer.js"></script>
     <script src="assets/aframe-event-set-component.min.js"></script>
@@ -22,7 +26,8 @@
     <link rel="stylesheet" href="https://use.typekit.net/foo7sru.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet">
 
-    <!-- <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script> -->
+    <!-- Loads custom scripts for events and animations <-->
+    <script src="assets/main.js?v=<?=$globalVersion?>"></script>
 
   </head>
 
@@ -33,26 +38,16 @@
 
       <!-- All Images -->
       <a-assets>
-        <img id="img_sky" src="src/Villas-on-Rio_B6_360_2.jpg">
-        <img id="img_poi" src="src/poi-min.png">
-        <img id="img_headphones" src="src/headphones-min.png">
-        <img id="img_lighting" src="src/lighting.png">
-        <img id="img_direction-in" src="src/direction-in-min.png">
-        <img id="img_poi" src="src/poi-min.png">
-        <img id="img_button" src="src/button-min.png">
-        <img id="img_close" src="src/close-min.png">
-        <img id="img_clothes-drawer" src="src/clothes-drawer-min.png">
-        <img id="img_headphones-d" src="src/headphones-d-min.png">
-        <img id="img_curtain" src="src/curtain-min.png">
-        <img id="img_headboard" src="src/headboard-min.png">
-        <img id="transparent" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=">
-        <img id="transpImage" crossorigin="anonymous" src="http://ekladata.com/hXTGfWnZm170W274zDRObDlqOlc.png">
+        <img id="img_sky" src="src/B6_360_1.jpg?v=<?=$globalVersion?>">
+        <img id="img_circle0" src="src/circle0.png?v=<?=$globalVersion?>">
+        <img id="img_circle1" src="src/circle1.png?v=<?=$globalVersion?>">
+        <img id="img_circle2" src="src/circle2.png?v=<?=$globalVersion?>">
       </a-assets>
 
 
-      <!-- Camera with Raycaster -->
+      <!-- Camera with Raycaster (so we can interact with the scene with the mouse/touch) -->
       <a-entity id='cameraWrapper' rotation="0 95 0" position="-0.12365 1.34538 0.72366" >
-        <a-entity id="camera" camera="far: 5000; zoom: 0.8" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
+        <a-entity id="camera" camera="far: 5000; zoom: 0.6" look-controls="" cursor="rayOrigin: mouse" raycaster="direction: 0.9218844171533822 -0.07934214953674647 -0.37925445905968874; origin: -1.8387398940563615 2.3769941735180065 -0.12375643952806391; useWorldCoordinates: true; objects: .clickable;" data-aframe-inspector-original-camera=""></a-entity>
       </a-entity>
 
 
@@ -67,6 +62,10 @@
 
 
       <!-- Door- and bedframe mattes -->
+      <!-- These are used to both hide the overflow of overlapping objects such as drawers and POIs, as well as provide a surface to recieve shadows -->
+      <!-- The shadow-material component (registered in main.js) is used to provide a transparent object which still reveieves a shadow. -->
+      <!-- Note that the material component here is not neccesary, but I left it on the element for debugging. We can temporarily remvoe the shadow material -->
+      <!-- Component, and then we can see where the matte is positioned in 3D space -->
       <a-box shadow="cast: false" shadow-material="" position="-6.95214 -2.97154 10.46272" geometry="width: 0.5; height: 15; depth: 6" material="opacity: 0.25"></a-box>
       <a-box shadow="cast: false" shadow-material="" position="-6.952 -2.972 -5.86206" geometry="width: 0.5; height: 15; depth: 6.3" material="opacity: 0.25"></a-box>
       <a-box shadow="cast: false" shadow-material="" position="-12.25215 -9.49217 2.34542" geometry="width: 10; height: 4; depth: 0.13" material="opacity: 0.25"></a-box>
@@ -77,7 +76,11 @@
       <!-- This box hides both the overflow of the drawer underneath as well as provide a surface for shadows -->
       <a-box id="desk-top" class="clickable" shadow="cast: false" sshadow-material="" position="8.77143 -4.62456 0.125" width="4" height="4" geometry="width: 4.5; height: 0.35; depth: 9.37" material="opacity: 0.0000"></a-box>
 
+
       <!-- clothes Drawer functinoality set in main.js through the animation-click-handler attirbute -->
+      <!-- Note how the click handler (the actual POI) is cascading through its parent-elements -->
+      <!-- That means when you click the child (and child-child), its parents will also inherit all these handlers -->
+      <!-- It's important to turn off the other handlers, otherwise you would trigger the animation/whatever twice! -->
       <a-box
         id="clothes-drawer"
         class="not-clickable custom-animation-object clothes_drawer_click_class"
@@ -90,8 +93,9 @@
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
         <a-box
+          animation-click-handler="clothes_drawer_outside"
           id="clothes-drawer-2"
-          class="not-clickable custom-animation-object clothes_drawer_click_class"
+          class="clickable custom-animation-object clothes_drawer_click_class"
           shadow="cast: false"
           sshadow-material=""
           position="0 0 -5.141"
@@ -100,7 +104,7 @@
           animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
           animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
         >
-          <a-image id="clothes-drawer-poi" geometry="primitive: circle; radius: 0.7" look-at="#camera" src="#img_poi" animation-click-handler="clothes_drawer" alpha-test position="4.885 3.225 2.313" class="clickable"
+          <a-image id="clothes-drawer-poi" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.33" look-at="#camera" src="#img_circle0" alpha-test position="4.885 3.225 2.313" class="clickable"
           animation="property: position; to: 4.885 6 2.313; dur: 2800; easing: easeOutQuad; dir: alternate; loop: 2"
           animation__loop="property: position; to: 4.885 4 2.313; dur: 4050; easing: easeOutQuad; delay: 6000; dir: alternate; loop: true"
           ></a-image>
@@ -110,7 +114,7 @@
 
       <!-- Curtain functinoality set in main.js through the animation-click-handler attirbute -->
       <a-box
-        id="curtain"
+        id="curtain_outside"
         shadow="cast: false"
         sshadow-material=""
         position="-5.834 0.178 -1.029"
@@ -121,23 +125,26 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image class="clickable" id="curtain-poi" src="#img_poi" geometry="primitive: circle; radius: 0.5" animation-click-handler="curtain" alpha-test position="-1.12 -0.5 0.5" class="not-clickable" animation="property: position; to: -1.12 -0.6 0.5; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true"></a-image>
+        <a-image id="curtain_outside-poi" src="#img_circle0" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.25" alpha-test position="-1.12 -0.5 0.5" class="not-clickable" animation="property: position; to: -1.12 -0.6 0.5; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true">
+          <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="1 0 -2" class="clickable" animation-click-handler="curtain_outside"></a-entity>
+        </a-image>
       </a-box>
 
 
       <!-- Headboard handlers -->
       <a-image
-        animation-click-handler="headboard"
-        id="headboard"
-        class="clickable custom-animation-object"
+        animation-click-handler="headboard_outside"
+        id="headboard_outside"
         shadow="cast: false"
         sshadow-material=""
+        class="clickable"
         position="-22 6.861 17.717"
-        geometry="primitive: circle; radius: 1.3"
+        geometry="primitive: circle; radius: 1.4"
+        desktop-geometry="primitive: circle; radius: 0.8"
         material="opacity: 0.95"
         rotation="0 -90 0"
-        scale="1.5 1.5 1.5"
-        src="#img_poi"
+        scale="1.05 1.05 1.05"
+        src="#img_circle0"
         animation="property: position; to: -22 5.861 17.717; dur: 2250; easing: easeOutQuad; dir: alternate; loop: true"
         animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
@@ -147,17 +154,16 @@
       </a-image>
 
 
-      <!-- Headphones -->
+      <!-- bluetooth -->
       <a-image
-        animation-click-handler="headphones"
-        id="headphones"
-        class="clickable"
+        id="bluetooth"
         look-at="#camera"
         animation="property: position; to: -10.75 -5.0 9.5; dur: 4000; easing: easeOutQuad; dir: alternate; loop: true"
-        src="#img_headphones"
+        src="#img_circle0"
         alpha-test=""
         material="opacity: 0.75"
-        geometry="primitive: circle; radius: 0.9"
+        geometry="primitive: circle; radius: 0.5"
+        desktop-geometry="primitive: circle; radius: 0.3"
         shadow="receive: false"
         position="-10.75 -5.5 9.5"
         scale="1.75 1.75 1.75"
@@ -166,21 +172,19 @@
         animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
-        <!-- <a-image id="headphones-poi" look-at="#camera" src="#img_poi"  animation-click-handler="headphones" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
+      <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="bluetooth_outside"></a-entity>
       </a-image>
-
 
 
       <!-- lighting -->
       <a-image
-        animation-click-handler="lighting"
         id="lighting"
-        class="clickable"
         look-at="#camera"
-        src="#img_lighting"
+        src="#img_circle0"
         alpha-test=""
         material="opacity: 0.75"
-        geometry="width: 1.5; height: 1.5"
+        geometry="primitive: circle; radius: 0.56"
+        desktop-geometry="primitive: circle; radius: 0.4"
         shadow="receive: false"
         position="-20.75 7.8 5"
         animation="property: position; to: -20.75 9 5; dur: 3650; easing: easeOutQuad; dir: alternate; loop: true"
@@ -190,8 +194,8 @@
         animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
+      <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="lighting_outside"></a-entity>
       </a-image>
-
 
 
       <!-- Link to Interior -->
@@ -200,76 +204,31 @@
         id="arrow"
         class="clickable"
         look-at="#camera"
-        src="#img_direction-in"
+        src="#img_circle2"
         alpha-test=""
         material="opacity: 0.75"
-        geometry="primitive: circle; radius: 0.9"
+        geometry="primitive: circle; radius: 1.8"
+        desktop-geometry="primitive: circle; radius: 1.35"
         shadow="receive: false"
-        position="-14 -5.5 4"
-        animation="property: position; to: -14 -5.1 4; dur: 3000; easing: easeOutQuad; dir: alternate; loop: true"
+        position="-13 -4.5 5"
+        animation="property: position; to: -13 -4.1 5; dur: 3000; easing: easeOutQuad; dir: alternate; loop: true"
         scale="1 1 1"
         animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
         animation__mousedown_scale="property: scale; to: 1.1 1.1 1.1; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
         animation__mouseleave_scale="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
-        <!-- <a-image id="headphones-poi" look-at="#camera" src="#img_poi"  animation-click-handler="headphones" alpha-test position="0.2 -0.7 1.5" sclae="0.85 0.85 0.85" class="not-clickable"></a-image> -->
       </a-image>
 
 
       <!-- Background Image -->
-      <a-sky src="#img_sky"></a-sky>
+      <a-sky id="mainsky" src="#img_sky"></a-sky>
 
 
     </a-scene>
 
-
-    <span class="patent-pending">Patent Pending</span>
-
-    <!-- External HTML overlay, hidden by default, will show over the Aframe canvas -->
-    <div class="dialogue">
-      <div class="dialogue__closer"></div>
-      <div class="dialogue__closerX"></div>
-      <div class="dialogue__text">
-        <div class="dialogue__wrapper">
-          <div class="dialogue__inner">
-            <h2 class="dialogue__headline">Headline</h2>
-            <div class="dialogue__content">Headline</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right now spaces live in different files, this element is used to hide the transition -->
-    <div class="frame-blend-overlay">
-    </div>
-
-    <!-- Loads custom scripts for events and animations -->
-    <script>
-      var dialogueInformation = {
-        clothes_drawer:{
-          title: 'Clothing Storage',
-          content: 'Generous Drawer/Storage Space Built into your Pod',
-        },
-        curtain:{
-          title: 'Designer Privacy Curtain',
-          content: 'Curtain Curated by Interior Designer for Pod Privacy on a Seamless Track with Heavy Fabric to Cut out Noise.',
-        },
-        headphones:{
-          title: 'Airport / Bluetooth (Private)',
-          content: '',
-        },
-        headboard:{
-          title: 'Designer Cushioned Headboard',
-          content: 'Floor-to-Ceiling, Plush, Leather Designer Headboards.',
-        },
-        lighting:{
-          title: 'Bluetooth Lighting Control',
-          content: 'Control Lighting and Even Adjust the Mood with Color Lights Independently in Each Pod.',
-        },
-      }
-    </script>
-    <script src="assets/main-outside.js?v=<?=$globalVersion?>"></script>
+    <!-- Dialog related markup -->
+    <?php require 'blocks/dialogue.php'; ?>
 
   </body>
 </html>
