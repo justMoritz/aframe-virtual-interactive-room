@@ -16,7 +16,7 @@
 
     <!-- If this GET parameter is set, we will display beautiful shadows on mattes, something I really regret losing in the production verion -->
     <script>
-      var hasShadows = <?=(( isset($_GET['shadows']) && $_GET['shadows'] == 'true' ) ? 'true' : 'false')?>
+      var showShadows = <?=(( isset($_GET['shadows']) && $_GET['shadows'] == 'false' ) ? 'false' : 'true')?>
     </script>
 
     <!-- Loading Aframe and Dependencies -->
@@ -306,7 +306,7 @@
 
       <!-- Link to Exterior -->
       <a-image
-        framechange-click-handler="index.php<?=(( isset($_GET['shadows']) && $_GET['shadows'] == 'true' ) ? '?shadows=true' : '')?>"
+        framechange-click-handler="index.php<?=(( isset($_GET['shadows']) ) ? '?shadows='.$_GET['shadows'] : '')?>"
         id="arrow"
         class="clickable"
         look-at="#camera"
