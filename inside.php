@@ -1,6 +1,6 @@
 <?php
 
-  $globalVersion = '1.3.2';
+  $globalVersion = '1.4.0';
 
 ?>
 
@@ -306,7 +306,7 @@
 
       <!-- Link to Exterior -->
       <a-image
-        framechange-click-handler="index.php<?=(( isset($_GET['shadows']) ) ? '?shadows='.$_GET['shadows'] : '')?>"
+        framechange-click-handler="outside.php<?=(( isset($_GET['shadows']) ) ? '?shadows='.$_GET['shadows'] : '')?>"
         id="arrow"
         class="clickable"
         look-at="#camera"
