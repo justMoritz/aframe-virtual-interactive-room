@@ -1,13 +1,13 @@
 <?php
 
-  $globalVersion = '1.3.2';
+  $globalVersion = '1.4.2';
 
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Villas on Rio Virtual Pod Tour 2</title>
+    <title>Villas on Rio Virtual Pod Tour</title>
     <meta name="description" content="Mouse Click Example - A-Frame">
     <meta charset="utf-8">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -126,7 +126,7 @@
         animation__mousedown="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
         animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
       >
-        <a-image id="curtain_outside-poi" src="#img_circle0" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.25" alpha-test position="-1.12 -0.5 0.5" class="not-clickable" animation="property: position; to: -1.12 -0.6 0.5; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true">
+        <a-image id="curtain_outside-poi" src="#img_circle0" geometry="primitive: circle; radius: 0.425" desktop-geometry="primitive: circle; radius: 0.25" alpha-test position="-1.12 1.5 0.5" class="not-clickable" animation="property: position; to: -1.12 1.6 0.5; dur: 3500; easing: easeOutQuad; dir: alternate; loop: true">
           <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="1 0 -2" class="clickable" animation-click-handler="curtain_outside"></a-entity>
         </a-image>
       </a-box>
@@ -174,6 +174,27 @@
         animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
       <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="bluetooth_outside"></a-entity>
+      </a-image>
+
+      <!-- bluetooth -->
+      <a-image
+        id="bed"
+        look-at="#camera"
+        animation="property: position; to: -9.75 -5.0 1.5; dur: 4000; easing: easeOutQuad; dir: alternate; loop: true"
+        src="#img_circle0"
+        alpha-test=""
+        material="opacity: 0.75"
+        geometry="primitive: circle; radius: 0.5"
+        desktop-geometry="primitive: circle; radius: 0.3"
+        shadow="receive: false"
+        position="-9.75 -5.5 1.5"
+        scale="1.75 1.75 1.75"
+        animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
+        animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
+        animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
+        animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
+      >
+      <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="bed"></a-entity>
       </a-image>
 
 

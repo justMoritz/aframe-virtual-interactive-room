@@ -51,6 +51,9 @@
       position: absolute;
       border: none;
     }
+    .virtualtour__thumbnail.this--noblur{
+      filter: blur(0);
+    }
 
     .virtualtour__thumbnail.this--fadeout{
       opacity: 0;
@@ -108,9 +111,16 @@
 
     <?php if( isset($_GET['pano']) && isset($_GET['thumb']) ):  ?>
 
+    <?php
+      $blurclass = '';
+      if( isset($_GET['noblur']) ){
+        $blurclass = 'this--noblur';
+      }
+    ?>
+
       <div class="virtualtour">
-        <iframe id="tourframe" class="virtualtour__iframe" data-src="<?=urldecode($_GET['pano']);?>" src=""></iframe>
-        <div id="tourthumb" class="virtualtour__thumbnail" style="background-image: url('<?=urldecode($_GET['thumb']);?>')"></div>
+        <iframe id="tourframe" class="virtualtour__iframe" data-src="//<?=urldecode($_GET['pano']);?>" src=""></iframe>
+        <div id="tourthumb" class="virtualtour__thumbnail <?=$blurclass?>" style="background-image: url('//<?=urldecode($_GET['thumb']);?>')"></div>
         <button id="tourbuttn" onclick="mazvirtualtour.play();" class="virtualtour__playbutton">
           <span class="sr-only"> Star The Tour </span>
         </button>
@@ -122,6 +132,10 @@
       Usage:
         ?pano=[<a href="https://www.urlencoder.org/" target="_blank" rel="noreferrer noopener">urlencoded</a>-url-for-pano]
         &thumb=[<a href="https://www.urlencoder.org/" target="_blank" rel="noreferrer noopener">urlencoded</a>-url-for-thumbnail ]
+        &noblur [optional, does what it says]
+        &autoplay [optional, does what it says]
+
+        *do not include the protocol in either URL!
       </pre>
 
     <?php endif; ?>
@@ -139,6 +153,12 @@
           tourframe.setAttribute("src", tourframe.getAttribute('data-src')  );
           tourbuttn.remove();
         };
+
+        <?php if( isset($_GET['autoplay']) ): ?>
+          setTimeout(function(){
+            play();
+          }, 150);
+        <?php endif; ?>
 
         return{
           play: play

@@ -44,6 +44,10 @@
       title: 'Wireless Bluetooth Headphone Connectivity',
       content: 'Wireless Bluetooth Headphone Connectivity on each side of Pod',
     },
+    bed:{
+      title: 'Full Size Memory Foam Bed',
+      content: 'Full Size Bed with Memory Foam Mattress Included',
+    },
     television:{
       title: '50" Multimedia TV & AppleTV',
       content: 'Huge Personal Screen for Plug and Play TV/Computer, including AppleTV for each screen—allowing for Private, Wireless, Bluetooth Headphone Connections in Your Separate Pods.',

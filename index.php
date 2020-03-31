@@ -57,7 +57,7 @@
     <h1 class="welcomemessage__headline">Enjoy Your Pod Experience</h1>
   </div>
 
-  <iframe src="outside.php?shadows=false" class="podiframe"></iframe>
+  <iframe src="outside.php?shadows=false" frameborder="0" class="podiframe"></iframe>
 
 
 

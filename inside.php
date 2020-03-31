@@ -1,13 +1,13 @@
 <?php
 
-  $globalVersion = '1.4.0';
+  $globalVersion = '1.4.2';
 
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Villas on Rio Virtual Pod Tour 1</title>
+    <title>Villas on Rio Virtual Pod Tour</title>
     <meta name="description" content="Mouse Click Example - A-Frame">
     <meta charset="utf-8">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -300,6 +300,28 @@
         animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
       >
         <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="bluetooth"></a-entity>
+      </a-image>
+
+
+      <!-- bed -->
+      <a-image
+        id="bed"
+        look-at="#camera"
+        animation="property: position; to: -5.06309 -6.0 -5.29273; dur: 4000; easing: easeOutQuad; dir: alternate; loop: true"
+        src="#img_circle0"
+        alpha-test=""
+        material="opacity: 0.75"
+        geometry="primitive: circle; radius: 0.475;"
+        desktop-geometry="primitive: circle; radius: 0.35;"
+        shadow="receive: false"
+        position="-5.06309 -6.92725 -5.29273"
+        scale="1.85 1.85 1.85"
+        animation__mousedown="property: components.material.material.color; type: color; from: #fffefe; to: #aaffff; startEvents: mouseenter; dur: 500"
+        animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500"
+        animation__mousedown_scale="property: scale; to: 1.8 1.8 1.8; startEvents: mouseenter; dur: 350; easing: easeOutQuad;"
+        animation__mouseleave_scale="property: scale; to: 1.75 1.75 1.75; startEvents: mouseleave; dur: 350; easing: easeOutQuad;"
+      >
+        <a-entity material="opacity: 0.00" geometry="primitive: circle; radius: 1.33;" position="0 0 -2" class="clickable" animation-click-handler="bed"></a-entity>
       </a-image>
 
 

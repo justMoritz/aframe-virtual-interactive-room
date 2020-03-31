@@ -50,7 +50,9 @@ var aframeInteractions = (function(){
       if(input != 'connectivity')
         _allCustomAnimationsHelper.connectivity(true);
       if(input != 'bluetooth')
-        _allCustomAnimationsHelper.bluetooth(true);
+        _allCustomAnimationsHelper.connectivity(true);
+      if(input != 'bed')
+        _allCustomAnimationsHelper.bed(true);
       if(input != 'television')
         _allCustomAnimationsHelper.television(true);
       if(input != 'headboard')
@@ -373,6 +375,40 @@ var aframeInteractions = (function(){
     bluetooth: function( forceClose ){
       var drawer   = document.getElementById("bluetooth");
       var poi      = document.getElementById("bluetooth-poi");
+
+      if(drawer){
+        // opening animation and dialogue activation
+        var _set = function(){
+          drawer.classList.add('this--open');
+
+          setTimeout(function( ){
+            toggleDialoge( drawer.getAttribute('animation-click-handler') );
+          }, 20);
+        };
+
+        // hides dialoge and resets animation
+        var _unset = function(){
+          drawer.classList.remove('this--open');
+        };
+
+        // if we received the request to force-close
+        if( forceClose ){
+          _unset();
+        }
+        // otherwise proceed with regular logic
+        else{
+          if( !drawer.classList.contains('this--open') ){
+            _set();
+          }else{
+            _unset();
+          }
+        }
+      }
+    },
+
+    bed: function( forceClose ){
+      var drawer   = document.getElementById("bed");
+      var poi      = document.getElementById("bed-poi");
 
       if(drawer){
         // opening animation and dialogue activation
