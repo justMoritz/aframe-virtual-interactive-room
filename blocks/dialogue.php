@@ -38,7 +38,7 @@
     },
     connectivity:{
       title: 'Connectivity',
-      content: 'With TV, Lighting, Wireless Charging, Bluetooth, and Wireless Headphone Connectivity, You Have it All.',
+      content: 'With TV, Bluetooth Lighting Controls, Wireless Charging, Bluetooth, and Wireless Headphone Connectivity, You Have it All.',
     },
     bluetooth:{
       title: 'Wireless Bluetooth Headphone Connectivity',

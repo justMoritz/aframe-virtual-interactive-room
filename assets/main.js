@@ -787,7 +787,7 @@ var aframeInteractions = (function(){
     // and writes it back to the camer
     initialCameraConfig.zoom = initialCameraConfig.zoom + modifier;
 
-    if( initialCameraConfig.zoom > 0.33 && initialCameraConfig.zoom < 3 ){
+    if( initialCameraConfig.zoom > 0.44 && initialCameraConfig.zoom < 3 ){
       camera.setAttribute('camera', initialCameraConfig);
     }
   };
