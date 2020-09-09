@@ -222,7 +222,7 @@
 
       <!-- Link to Interior -->
       <a-image
-        framechange-click-handler="inside.php<?=(( isset($_GET['shadows']) ) ? '?shadows='.$_GET['shadows'] : '')?>"
+        framechange-click-handler="index.php<?=(( isset($_GET['shadows']) ) ? '?shadows='.$_GET['shadows'] : '')?>"
         id="arrow"
         class="clickable"
         look-at="#camera"
